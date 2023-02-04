@@ -6,19 +6,24 @@ using Random = UnityEngine.Random;
 
 public class WordEngine : MonoBehaviour
 {
-    /*
+    public RootWord word1, word2;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        for(int i = 0; i < 10; i++) 
+        {
+            CheckCorrect(SelectRandomWords());
+        }
     }
-    */
+    /*
     // Update is called once per frame
     void Update()
     {
-        SelectRandomWords();
+        CheckCorrect(SelectRandomWords());
     }
-
+    */
     
     //Declaration of different words
     List<string> rootWords = new List<string>
@@ -35,7 +40,7 @@ public class WordEngine : MonoBehaviour
     {
         "ennial","age","ury"
     };
-    List<string> finalWords = new List<string>
+    public List<string> finalWords = new List<string>
     {
         "centennial", "bicentennial","percent","percentage","century","recreate","recreation","recreational",
         "procreate","procreative"
@@ -58,9 +63,16 @@ public class WordEngine : MonoBehaviour
     public bool CheckCorrect(string answer)
     {
         //check if the word exist or not in the choices
-        return true;
+        if (finalWords.Contains(answer))
+        {
+            Debug.Log(answer + " is a correct word Congratulations");
+            return true;
+        }
+        else
+            return false;
+        
     }
-    public void SelectRandomWords()
+    public string SelectRandomWords()
     {
         List<string> roots = GetRootWords();
         List<string> suffix = GetSuffix();
@@ -80,6 +92,7 @@ public class WordEngine : MonoBehaviour
         }
 
         Debug.Log(newWord);
+        return newWord;
     }
   //  GetRootWords()
 
