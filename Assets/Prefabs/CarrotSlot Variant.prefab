@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.76, y: -40.1}
-  m_SizeDelta: {x: 140.24, y: 184.38}
+  m_AnchoredPosition: {x: 0.59, y: -40.1}
+  m_SizeDelta: {x: 127.54, y: 184.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &84327760
 CanvasRenderer:
@@ -214,8 +214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.09, y: 81.3}
-  m_SizeDelta: {x: 132.88, y: 20.69}
+  m_AnchoredPosition: {x: -0.17, y: 81.3}
+  m_SizeDelta: {x: 119.17, y: 20.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &674287197
 CanvasRenderer:
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.95
+  m_fontSize: 12.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -349,8 +349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.8787, y: 62.2}
-  m_SizeDelta: {x: 164.58, y: 20.69}
+  m_AnchoredPosition: {x: -0.171, y: 62.2}
+  m_SizeDelta: {x: 119.17, y: 20.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2028638252
 CanvasRenderer:
@@ -458,7 +458,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2349578096436324351, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_Name
-      value: CarrotSlot
+      value: CarrotSlot Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2349578096436324351, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_IsActive
