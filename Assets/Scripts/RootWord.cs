@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Word", menuName = "Root Word")]
+[CreateAssetMenu(fileName = "New Word", menuName = "Words/Root Word")]
 public class RootWord : ScriptableObject
 {
-    [SerializeField]
-    private string rootWord;
+    public string rootWord;
 
-    [SerializeField]
-    private List<string> prefixList;
+    public List<string> prefixList;
 
-    [SerializeField]
-    private List<string> suffixList;
+    public List<string> suffixList;
 
-    [SerializeField]
-    private List<string> possibleSolutions;
+    public List<string> possibleSolutions;
 }
