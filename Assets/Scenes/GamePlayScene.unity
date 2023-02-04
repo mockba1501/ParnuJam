@@ -747,7 +747,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -771,12 +771,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186434645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.65, y: -1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232920445
 GameObject:
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ssssssssssss
+  m_text: Microbiological
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -1015,13 +1015,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 274.45
+  m_fontSize: 230.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 500
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1837,7 +1837,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512050836
 GameObject:
@@ -3157,7 +3157,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -30.122202, y: -50}
-  m_SizeDelta: {x: 1305.8911, y: 2356.6038}
+  m_SizeDelta: {x: 1305.8911, y: 1036.5627}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &843589479
 MonoBehaviour:
@@ -3210,7 +3210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalScale.x
@@ -3222,7 +3222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3565,7 +3565,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1028473525
 GameObject:
@@ -4860,7 +4860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalScale.x
@@ -4872,7 +4872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7352,7 +7352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalScale.x
