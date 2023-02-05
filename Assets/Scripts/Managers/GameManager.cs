@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     //Initialize the game with a list all possible scriptable object
     public List<RootWord> words;
-    public Queue<Tuple<string, wordTypes>> wordsQueue = new Queue<Tuple<string, wordTypes>>();
+    private Queue<Tuple<string, wordTypes>> wordsQueue = new Queue<Tuple<string, wordTypes>>();
     public enum wordTypes
     {
         Root,
