@@ -6,17 +6,7 @@ using static UnityEditor.Progress;
 public class Inventory : MonoBehaviour
 {
     //This should store the word item that will be added to the Item slot to keep track of the incoming words
-    public struct WordItem
-    {
-        public string word;
-        public int type;
 
-        public WordItem(string w, int t)
-        {
-            word = w;
-            type = t;
-        }
-    }
     public static Inventory Instance { get; private set; }
     public int size = 6;
     public List<WordItem> wordItems = new List<WordItem>();
