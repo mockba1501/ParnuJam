@@ -6,26 +6,19 @@ using static UnityEditor.Progress;
 
 public class ItemSlot : MonoBehaviour
 {
-    public enum wordTypes
-    {
-        Root,
-        Prefix,
-        Suffix
-    }
+
     public Image icon;
     public Button removeButton;
     public Text wordLabel;
     public int type; //0 root, 1 prefix, 2 suffix
-
-    // Start is called before the first frame update
-    void Start()
+    public WordItem wordItem;
+    public void AddItem(WordItem newItem)
     {
+        this.wordItem = newItem;
         
-    }
+        if(newItem.type == 0)
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }
