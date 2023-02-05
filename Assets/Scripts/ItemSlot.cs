@@ -14,6 +14,18 @@ public class ItemSlot : MonoBehaviour
     public WordItem wordItem;
 
     public UIManager uiMngr;
+    public GameObject objectToFind;
+    public Sprite buttonSprite;
+
+    private void Start()
+    {
+        objectToFind = transform.GetChild(0).gameObject;
+        Debug.Log(objectToFind.name);
+
+        buttonSprite = objectToFind.GetComponent<Image>().sprite;
+        Debug.Log(buttonSprite.name);
+        
+    }
 
     public void AddItem(WordItem newItem)
     {
