@@ -6090,8 +6090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bac7dd517628ab44ad8672e5df51b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObject1: {fileID: 919132149155446097, guid: afee5b168cbc56a4fb22c8f21bbb959d, type: 3}
-  idObject1: {fileID: 1377381727}
+  toSpawn: {fileID: 7180473144576682280, guid: 53d6bab63127b1e478528cdd04a0c278, type: 3}
+  sourceObject: {fileID: 1377381727}
 --- !u!4 &1655157883
 Transform:
   m_ObjectHideFlags: 0
