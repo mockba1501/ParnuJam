@@ -103,5 +103,9 @@ public class GameManager : MonoBehaviour
             i++;
         }
     }
-
+    public void InitiliazeWords()
+    {
+        //Access the invenotry slots using the Add function 
+        //Pass the wordItems (word and the type)
+    }
 }
