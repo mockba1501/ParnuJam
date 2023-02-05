@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager uiManager;
-    public Transform itemsOnSale;
 
+    public GameManager gameManager;
+    public Transform itemsOnSale;
     public Sprite seedBagImg; // previously Image class
     public Sprite fertilizerBagImg; // previously Image class
     ItemSlot[] slots;
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         slots = itemsOnSale.GetComponentsInChildren<ItemSlot>();
+        InitilizeWordSlots();
     }
 
     // Update is called once per frame
@@ -28,6 +30,12 @@ public class UIManager : MonoBehaviour
     //
     public void InitilizeWordSlots()
     {
-
+        int i = 0;
+        foreach (var slot in slots) 
+        {
+            i++;
+            slot.AddItem(gameManager.GetWord());
+            Debug.Log($"Word added {i}");
+        }
     }
 }

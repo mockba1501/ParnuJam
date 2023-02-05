@@ -7,11 +7,24 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     //Initialize the game with a list all possible scriptable object
     public List<RootWord> words;
     //private Queue<Tuple<string, WordTypes>> wordsQueue = new Queue<Tuple<string, WordTypes>>();
     private Queue<WordItem> wordsQueue = new Queue<WordItem>();
     private List<string> correctSolutions= new List<string>();
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+            Destroy(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,18 +48,13 @@ public class GameManager : MonoBehaviour
         {
             correctSolutions.AddRange(word.possibleSolutions);
         }
-
-        /*Debug.Log(correctSolutions.Count);
-        foreach(var word in correctSolutions) 
-        {
-            Debug.Log(word.ToString());
-        }*/
     }
 
     public bool CheckWord(string word)
     {
         return correctSolutions.Contains(word);
     }
+
     private void PopulateWordOptions()
     {
         int totalRoots = words.Count;

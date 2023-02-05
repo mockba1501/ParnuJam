@@ -420,8 +420,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   removeButton: {fileID: 0}
-  wordLabel: {fileID: 0}
+  wordLabel: 
   type: 0
+  uiMngr: {fileID: 1200685101}
 --- !u!1 &108030588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,8 +1499,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   removeButton: {fileID: 0}
-  wordLabel: {fileID: 0}
+  wordLabel: 
   type: 0
+  uiMngr: {fileID: 1200685101}
 --- !u!1 &624520475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,8 +2633,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   removeButton: {fileID: 0}
-  wordLabel: {fileID: 0}
+  wordLabel: 
   type: 0
+  uiMngr: {fileID: 1200685101}
 --- !u!1 &1048742980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20151a81062a47f4d848d4e545857966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 21424332}
   itemsOnSale: {fileID: 108030589}
   seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
   fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
@@ -3455,8 +3459,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   removeButton: {fileID: 0}
-  wordLabel: {fileID: 0}
+  wordLabel: 
   type: 0
+  uiMngr: {fileID: 1200685101}
 --- !u!1 &1396853116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4509,8 +4514,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   removeButton: {fileID: 0}
-  wordLabel: {fileID: 0}
+  wordLabel: 
   type: 0
+  uiMngr: {fileID: 1200685101}
 --- !u!1 &2048616469
 GameObject:
   m_ObjectHideFlags: 0
@@ -4770,8 +4776,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   removeButton: {fileID: 0}
-  wordLabel: {fileID: 0}
+  wordLabel: 
   type: 0
+  uiMngr: {fileID: 1200685101}
 --- !u!1 &2097084040
 GameObject:
   m_ObjectHideFlags: 0
