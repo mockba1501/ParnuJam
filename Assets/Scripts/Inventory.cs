@@ -23,6 +23,20 @@ public class Inventory : MonoBehaviour
     //We need to store the word info in the inventory list 
     //Utility function to add/remove from the inventory
 
+    public bool Add(WordItem newWord)
+    {
+        if (wordItems.Count < size)
+        {
+            wordItems.Add(newWord);
+            return true;
+        }
+        else
+        {
+            Debug.Log("You can't add more words to the inventory");
+            return false;
+        }
+    }
+
     public bool Add(string word, int type)
     {
         if (wordItems.Count < size)
