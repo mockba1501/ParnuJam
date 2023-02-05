@@ -423,6 +423,10 @@ MonoBehaviour:
   wordLabel: 
   type: 0
   uiMngr: {fileID: 1200685101}
+  objectToFind: {fileID: 0}
+  gObjectToFind: {fileID: 0}
+  newSprite: {fileID: 0}
+  buttonText: {fileID: 1396853118}
 --- !u!1 &108030588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1506,10 @@ MonoBehaviour:
   wordLabel: 
   type: 0
   uiMngr: {fileID: 1200685101}
+  objectToFind: {fileID: 0}
+  gObjectToFind: {fileID: 0}
+  newSprite: {fileID: 0}
+  buttonText: {fileID: 512050838}
 --- !u!1 &624520475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2644,10 @@ MonoBehaviour:
   wordLabel: 
   type: 0
   uiMngr: {fileID: 1200685101}
+  objectToFind: {fileID: 0}
+  gObjectToFind: {fileID: 0}
+  newSprite: {fileID: 0}
+  buttonText: {fileID: 1504546131}
 --- !u!1 &1048742980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,11 +3469,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 296431109}
   removeButton: {fileID: 0}
   wordLabel: 
   type: 0
   uiMngr: {fileID: 1200685101}
+  objectToFind: {fileID: 0}
+  gObjectToFind: {fileID: 0}
+  newSprite: {fileID: 0}
+  buttonText: {fileID: 258622845}
 --- !u!1 &1396853116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4517,6 +4533,10 @@ MonoBehaviour:
   wordLabel: 
   type: 0
   uiMngr: {fileID: 1200685101}
+  objectToFind: {fileID: 0}
+  gObjectToFind: {fileID: 0}
+  newSprite: {fileID: 0}
+  buttonText: {fileID: 760943753}
 --- !u!1 &2048616469
 GameObject:
   m_ObjectHideFlags: 0
@@ -4774,11 +4794,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1254133323}
   removeButton: {fileID: 0}
   wordLabel: 
   type: 0
   uiMngr: {fileID: 1200685101}
+  objectToFind: {fileID: 0}
+  gObjectToFind: {fileID: 0}
+  newSprite: {fileID: 0}
+  buttonText: {fileID: 1096091959}
 --- !u!1 &2097084040
 GameObject:
   m_ObjectHideFlags: 0

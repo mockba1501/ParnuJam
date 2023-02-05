@@ -10,8 +10,8 @@ public class UIManager : MonoBehaviour
 
     public GameManager gameManager;
     public Transform itemsOnSale;
-    public Sprite seedBagImg; // previously Image class
-    public Sprite fertilizerBagImg; // previously Image class
+    public Image seedBagImg; // previously Image class
+    public Image fertilizerBagImg; // previously Image class
     ItemSlot[] slots;
     
     // Start is called before the first frame update

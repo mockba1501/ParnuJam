@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
+using TMPro;
 
 public class ItemSlot : MonoBehaviour
 {
 
-    public Sprite icon; // Previsously Image class
+    public Image icon; // Previsously Image class
     public Button removeButton;
     public string wordLabel; // Previously Text class
     public int type; //0 root, 1 prefix, 2 suffix
@@ -15,16 +16,25 @@ public class ItemSlot : MonoBehaviour
 
     public UIManager uiMngr;
     public GameObject objectToFind;
-    public Sprite buttonSprite;
+    public GameObject gObjectToFind;
+    public Sprite newSprite;
+    public TMP_Text buttonText;
 
     private void Start()
     {
         objectToFind = transform.GetChild(0).gameObject;
         Debug.Log(objectToFind.name);
 
-        buttonSprite = objectToFind.GetComponent<Image>().sprite;
-        Debug.Log(buttonSprite.name);
-        
+        // gObjectToFind = transform.GetChild(0).GetChild(0).gameObject;
+        //Debug.Log(gObjectToFind.GetComponent<TMP_Text>().text);
+
+        //newSprite = objectToFind.GetComponent<Image>().sprite;
+        //Debug.Log(newSprite.name);
+
+        //icon = objectToFind.GetComponent<Image>();
+
+        //buttonText = gObjectToFind.GetComponent<TMP_Text>().text;
+
     }
 
     //Adding a new word to the item slot
@@ -34,16 +44,16 @@ public class ItemSlot : MonoBehaviour
         this.type = newItem.type;
 
         wordLabel = wordItem.word;
-
+        buttonText.text = wordItem.word;
         Debug.Log(newItem.type.GetType());
 
         if (this.type == 0)
         {
-            buttonSprite = uiMngr.seedBagImg;
+            icon = uiMngr.seedBagImg;
         }
         else
         {
-            buttonSprite = uiMngr.fertilizerBagImg;
+            icon = uiMngr.fertilizerBagImg;
         }
     }
 
