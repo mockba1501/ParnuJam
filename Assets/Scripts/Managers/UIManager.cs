@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public static UIManager uiManager;
     public Transform itemsOnSale;
 
+    public Image seedBagImg;
+    public Image fertilizerBagImg;
     ItemSlot[] slots;
     
     // Start is called before the first frame update
