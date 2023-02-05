@@ -6,7 +6,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        SFXManager.instance.ManageSFX(2);
+        SFXManager.instance.ManageSFX(3);
     }
 
     public void QuitGame() 
