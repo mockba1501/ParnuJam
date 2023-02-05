@@ -189,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &38498916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -501,6 +501,7 @@ MonoBehaviour:
   buttonText: {fileID: 1396853118}
   type: 0
   uiMngr: {fileID: 1200685101}
+  plantManager: {fileID: 489823764}
 --- !u!1 &108030588
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Microbiological
+  m_text: cent
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -861,7 +862,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -885,7 +886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1282987338}
+        m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &296431110
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1257,6 +1270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 489823763}
+  - component: {fileID: 489823764}
   m_Layer: 0
   m_Name: PlantPositions
   m_TagString: Untagged
@@ -1282,6 +1296,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &489823764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489823762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ed2ad169b6e25408a8871287c73871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantParent: {fileID: 0}
+  plantPos:
+  - {fileID: 1048742980}
+  - {fileID: 351929570}
+  - {fileID: 2059967515}
+  coinText: {fileID: 1487604129}
 --- !u!1 &493840129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1630,7 @@ MonoBehaviour:
   buttonText: {fileID: 512050838}
   type: 0
   uiMngr: {fileID: 1200685101}
+  plantManager: {fileID: 489823764}
 --- !u!1 &624520475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,6 +2159,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1048742981}
     m_Modifications:
+    - target: {fileID: 674287196, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: m_text
+      value: cent
+      objectReference: {fileID: 0}
+    - target: {fileID: 674287196, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: m_fontSize
+      value: 17.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028638251, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 323562704488590908, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2606,7 +2651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Instruction here:'
+  m_text: Choose a seed to plant
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -2780,6 +2825,7 @@ MonoBehaviour:
   buttonText: {fileID: 1504546131}
   type: 0
   uiMngr: {fileID: 1200685101}
+  plantManager: {fileID: 489823764}
 --- !u!1 &1048742980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3579,6 +3625,7 @@ MonoBehaviour:
   buttonText: {fileID: 258622845}
   type: 0
   uiMngr: {fileID: 1200685101}
+  plantManager: {fileID: 489823764}
 --- !u!1 &1396853116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,7 +3896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coins
+  m_text: 99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -4758,6 +4805,7 @@ MonoBehaviour:
   buttonText: {fileID: 760943753}
   type: 0
   uiMngr: {fileID: 1200685101}
+  plantManager: {fileID: 489823764}
 --- !u!1 &2048616469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5022,6 +5070,7 @@ MonoBehaviour:
   buttonText: {fileID: 1096091959}
   type: 0
   uiMngr: {fileID: 1200685101}
+  plantManager: {fileID: 489823764}
 --- !u!1 &2097084040
 GameObject:
   m_ObjectHideFlags: 0
@@ -5039,7 +5088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2097084041
 RectTransform:
   m_ObjectHideFlags: 0

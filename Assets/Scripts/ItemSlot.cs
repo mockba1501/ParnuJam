@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 using TMPro;
 
 public class ItemSlot : MonoBehaviour
@@ -20,6 +20,7 @@ public class ItemSlot : MonoBehaviour
     public WordItem wordItem;
 
     public UIManager uiMngr;
+    public PlantManager plantManager;
 
     
 
@@ -63,6 +64,7 @@ public class ItemSlot : MonoBehaviour
 
     public void UseItem()
     {
+        plantManager.EnablePlant(0);
         /*
         //When you click on an item either two things happen:
         //1) If it was a root word and there are empty spaces in the field plant it
