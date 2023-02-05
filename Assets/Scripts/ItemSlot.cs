@@ -7,23 +7,25 @@ using TMPro;
 
 public class ItemSlot : MonoBehaviour
 {
-
+    public Sprite seedBagImg; // previously Image class
+    public Sprite fertilizerBagImg; // previously Image class
+    
     public Image icon; // Previsously Image class
-    public Button removeButton;
-    public string wordLabel; // Previously Text class
+    //public Button removeButton;
+    public Button useButton;
+    public TMP_Text buttonText;
+
+    //public string wordLabel; // Previously Text class
     public int type; //0 root, 1 prefix, 2 suffix
     public WordItem wordItem;
 
     public UIManager uiMngr;
-    public GameObject objectToFind;
-    public GameObject gObjectToFind;
-    public Sprite newSprite;
-    public TMP_Text buttonText;
+
+    
 
     private void Start()
     {
-        objectToFind = transform.GetChild(0).gameObject;
-        Debug.Log(objectToFind.name);
+      //  icon = useButton.GetComponentInChildren<Image>();
 
         // gObjectToFind = transform.GetChild(0).GetChild(0).gameObject;
         //Debug.Log(gObjectToFind.GetComponent<TMP_Text>().text);
@@ -43,17 +45,19 @@ public class ItemSlot : MonoBehaviour
         this.wordItem = newItem;
         this.type = newItem.type;
 
-        wordLabel = wordItem.word;
+       
         buttonText.text = wordItem.word;
         Debug.Log(newItem.type.GetType());
 
         if (this.type == 0)
         {
-            icon = uiMngr.seedBagImg;
+            // icon.sprite = uiMngr.seedBagImg;
+            icon.sprite = seedBagImg;
         }
         else
         {
-            icon = uiMngr.fertilizerBagImg;
+            //icon.sprite = uiMngr.fertilizerBagImg;
+            icon.sprite = fertilizerBagImg;
         }
     }
 
