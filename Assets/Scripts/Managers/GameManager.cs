@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         //Create a queue structure to include the words 
         PopulateWordOptions();
         //PrintWords();
-    
+        GenerateWordSolutions();
     }
 
     // Update is called once per frame
@@ -31,7 +31,21 @@ public class GameManager : MonoBehaviour
 
     private void GenerateWordSolutions()
     {
+        foreach(var word in words) 
+        {
+            correctSolutions.AddRange(word.possibleSolutions);
+        }
 
+        /*Debug.Log(correctSolutions.Count);
+        foreach(var word in correctSolutions) 
+        {
+            Debug.Log(word.ToString());
+        }*/
+    }
+
+    public bool CheckWord(string word)
+    {
+        return correctSolutions.Contains(word);
     }
     private void PopulateWordOptions()
     {
