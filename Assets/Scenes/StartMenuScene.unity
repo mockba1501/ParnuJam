@@ -724,6 +724,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1e8a5dd18c4030541b5cf74ff27bc802, type: 3}
   - {fileID: 8300000, guid: 602411130373bb0439e7b49b4a5c6de3, type: 3}
   - {fileID: 8300000, guid: 50c6706703d576d468486199947f3fda, type: 3}
+  - {fileID: 8300000, guid: 3b5bc6211e6f1ef47b26f4f08cdc9214, type: 3}
   isPlayingSfx: 0
 --- !u!1 &1211241490
 GameObject:
@@ -862,7 +863,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.147
   m_Pitch: 1
   Loop: 1
   Mute: 0
