@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a1517120218b84c9ec7a2e9a25eee1, type: 3}
   m_Name: mono
   m_EditorClassIdentifier: 
-  rootWord: 
+  rootWord: mono
   prefixList: []
-  suffixList: []
-  possibleSolutions: []
+  suffixList:
+  - lith
+  - ic
+  - tonous
+  - logue
+  - cle
+  possibleSolutions:
+  - monolith
+  - monolithic
+  - monolithic
+  - monotonous
+  - monologue
+  - monocle
