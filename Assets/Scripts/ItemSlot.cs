@@ -31,14 +31,17 @@ public class ItemSlot : MonoBehaviour
     public void AddItem(WordItem newItem)
     {
         this.wordItem = newItem;
+        this.type = newItem.type;
 
         wordLabel = wordItem.word;
 
-        if (newItem.type == 0)
+        Debug.Log(newItem.type.GetType());
+
+        if (this.type == 0)
         {
             buttonSprite = uiMngr.seedBagImg;
         }
-        else if (newItem.type == 1 || newItem.type == 2)
+        else
         {
             buttonSprite = uiMngr.fertilizerBagImg;
         }

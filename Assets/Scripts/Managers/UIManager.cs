@@ -34,8 +34,9 @@ public class UIManager : MonoBehaviour
         foreach (var slot in slots) 
         {
             i++;
-            slot.AddItem(gameManager.GetWord());
-            Debug.Log($"Word added {i}");
+            WordItem tmp = gameManager.GetWord();
+            slot.AddItem(tmp);
+            Debug.Log($"Word added {i} {tmp.word} of type {tmp.type}");
         }
     }
 }
