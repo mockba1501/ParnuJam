@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
 {
     //Initialize the game with a list all possible scriptable object
     public List<RootWord> words;
-    private Queue<Tuple<string, WordTypes>> wordsQueue = new Queue<Tuple<string, WordTypes>>();
+    //private Queue<Tuple<string, WordTypes>> wordsQueue = new Queue<Tuple<string, WordTypes>>();
+    private Queue<WordItem> wordsQueue = new Queue<WordItem>();
+    private List<string> correctSolutions= new List<string>();
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,11 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void PopulateWordOptions()
+    private void GenerateWordSolutions()
+    {
+
+    }
+    private void PopulateWordOptions()
     {
         int totalRoots = words.Count;
         int countRoots = 0;
@@ -38,7 +44,11 @@ public class GameManager : MonoBehaviour
         {
             //Add the root word
             string tmp = words[countRoots].rootWord.ToString();
-            wordsQueue.Enqueue(new Tuple<string, WordTypes>(tmp, WordTypes.Root));
+            WordItem tmpRootWord = new WordItem(tmp,0); //Level 0 stands for Root words
+
+            //wordsQueue.Enqueue(new Tuple<string, WordTypes>(tmp, WordTypes.Root));
+            wordsQueue.Enqueue(tmpRootWord);
+
             countGeneratedWords++;
             Debug.Log($"Word {countGeneratedWords} Adding root {tmp}");
             //Extract the prefix words
@@ -55,7 +65,10 @@ public class GameManager : MonoBehaviour
                     int randomIndex = Random.Range(0, tmpPrefix.Count);
                     tmp = tmpPrefix[randomIndex];
 
-                    wordsQueue.Enqueue(new Tuple<string, WordTypes>(tmp, WordTypes.Prefix));
+                    WordItem tmpPrefixWord = new WordItem(tmp, 1); //Level 1 stands for Prefix words
+                    //wordsQueue.Enqueue(new Tuple<string, WordTypes>(tmp, WordTypes.Prefix));
+                    wordsQueue.Enqueue(tmpPrefixWord);
+
                     tmpPrefix.RemoveAt(randomIndex);
                     
                     countGeneratedWords++;
@@ -79,7 +92,9 @@ public class GameManager : MonoBehaviour
                     int randomIndex = Random.Range(0, tmpSuffix.Count);
                     tmp = tmpSuffix[randomIndex];
 
-                    wordsQueue.Enqueue(new Tuple<string, WordTypes>(tmp, WordTypes.Suffix));
+                    WordItem tmpSuffixWord = new WordItem(tmp, 2); //Level 2 stands for Prefix words
+                    wordsQueue.Enqueue(tmpSuffixWord);
+                    // wordsQueue.Enqueue(new Tuple<string, WordTypes>(tmp, WordTypes.Suffix));
                     tmpSuffix.RemoveAt(randomIndex);
                     
                     countGeneratedWords++;
@@ -99,13 +114,19 @@ public class GameManager : MonoBehaviour
         //foreach(string in wordsQueue)
         foreach(var data in wordsQueue)
         { 
-            Debug.Log($"word {i} {data.Item1} of type {data.Item2}");
+            Debug.Log($"Welcome word {i} {data.word} of type {data.type}");
             i++;
         }
     }
-    public void InitiliazeWords()
+
+    
+    public WordItem GetWord()
     {
+        WordItem data = wordsQueue.Dequeue();
+        return data;
         //Access the invenotry slots using the Add function 
         //Pass the wordItems (word and the type)
     }
+
+
 }

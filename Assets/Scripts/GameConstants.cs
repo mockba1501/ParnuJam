@@ -7,6 +7,7 @@ public struct WordItem
     public string word;
     public int type;
 
+    
     public WordItem(string w, int t)
     {
         word = w;
