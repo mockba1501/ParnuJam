@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         PopulateWordOptions();
         //PrintWords();
         GenerateWordSolutions();
+
     }
 
     // Update is called once per frame
@@ -144,11 +145,29 @@ public class GameManager : MonoBehaviour
     
     public WordItem GetWord()
     {
-        WordItem data = wordsQueue.Dequeue();
-        return data;
         //Access the invenotry slots using the Add function 
         //Pass the wordItems (word and the type)
+        WordItem data = wordsQueue.Dequeue();
+        return data;
+       
     }
 
+    //Returns a list with a number of words to be shown as future selections
+    public List<string> GetNextWords(int num)
+    {
+        List<string> futureWords= new List<string>();
+        int count = num, i =0;
+        //Make sure that the number of words doesn't exceed the actual available words
+        if(num > wordsQueue.Count)
+            count = wordsQueue.Count;
 
+        foreach(var w in wordsQueue) 
+        {
+            futureWords.Add(w.word.ToString());
+            i++;
+            if (i >= count)
+                break;
+        }
+        return futureWords;
+    }
 }

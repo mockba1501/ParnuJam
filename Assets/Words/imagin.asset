@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a1517120218b84c9ec7a2e9a25eee1, type: 3}
   m_Name: imagin
   m_EditorClassIdentifier: 
-  rootWord: 
-  prefixList: []
-  suffixList: []
-  possibleSolutions: []
+  rootWord: imagin
+  prefixList:
+  - un
+  suffixList:
+  - able
+  - ing
+  - ary
+  - ation
+  - ative
+  possibleSolutions:
+  - imaginable
+  - unimaginable
+  - imagining
+  - imaginary
+  - imagination
+  - imaginative
+  - unimaginative
