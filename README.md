@@ -5,15 +5,15 @@ This is the code base for the Carroots Educational Game Developed Using Unity &a
 This Game was developed part of the Global Game Jam held in Parnu, Estonia From 3<sup>rd</sup> to 5<sup>th</sup> February 2023
 
 # Team
-Mohammed Ockba<sup>mockba1501</sup> - Game Designer, Developer & Programmer
+Mohammed Ockba <sup>mockba1501</sup> - Game Designer, Developer & Programmer
 
-Yoshio Yamazaki<sup>Yoshio-0</sup> - UI Designer, Developer
+Yoshio Yamazaki <sup>Yoshio-0</sup> - UI Designer, Developer
 
-Oksana Bykova<sup>oxanabykova</sup> - Game Designer, Instructional Designer, Writer
+Erich Brutus <sup>IEQI</sup> - 3D Artist, Animation
 
-Erich Brutus<sup>IEQI</sup> - 3D Artist, Animation
+Oksana Bykova <sup>oxanabykova</sup> - Game Designer, Writer, 2D Art
 
-Julie Morin<sup>JulieMMorin</sup> - Game Designer, Writer
+Julie Morin <sup>JulieMMorin</sup> - Game Designer, Writer, 2D Art
 
 # Game Concept
 Understanding word roots helps us understand new language. Understanding carroots helps grow your carrots as you build words using their roots as a base. How big can your carroot grow? Every carroot you sell earns you money to continue to buy seeds.  Plant the seeds and fertilize them with prefixes and suffixes; or, other roots!
