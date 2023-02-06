@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlantStatus : MonoBehaviour
 {
     public string rootWord;
-    public bool isRoot;
+    public bool isEmpty;
     public int level;
     public GameObject carrotPrefab;
     public string currentWord;

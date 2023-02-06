@@ -7,7 +7,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager uiManager;
+    public static UIManager uiManager { get; private set; }
 
     public GameManager gameManager;
 
@@ -17,6 +17,16 @@ public class UIManager : MonoBehaviour
     public ItemSlot[] itemSlots;
     public GameObject[] futureSlots;
     List<TMP_Text> futureWords = new List<TMP_Text>();
+
+    void Awake()
+    {
+        if (uiManager != null)
+        {
+            Debug.LogWarning("More than one instance of Inventory found");
+            return;
+        }
+        uiManager = this;
+    }
 
     // Start is called before the first frame update
     void Start()

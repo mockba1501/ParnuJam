@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 674287197}
   - component: {fileID: 674287196}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WordText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 2028638252}
   - component: {fileID: 2028638251}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: PlantValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootWord: 
-  isRoot: 0
+  isEmpty: 0
   level: 0
   carrotPrefab: {fileID: 4190092917319149675}
   currentWord: 
