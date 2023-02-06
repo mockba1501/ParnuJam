@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
     
     public WordItem GetWord()
     {
-        //Access the invenotry slots using the Add function 
+        //Access the invenotry itemSlots using the Add function 
         //Pass the wordItems (word and the type)
         WordItem data = wordsQueue.Dequeue();
         return data;

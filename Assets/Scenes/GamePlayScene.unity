@@ -189,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &38498916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 4.112976, y: -958.64966}
+  m_AnchoredPosition: {x: 4.112976, y: -84}
   m_SizeDelta: {x: 11685.199, y: 2647.321}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &43179952
@@ -463,12 +463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
-  fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   icon: {fileID: 1156726301}
   useButton: {fileID: 354647502}
   buttonText: {fileID: 1396853118}
-  type: 0
   uiMngr: {fileID: 1200685101}
   plantManager: {fileID: 489823764}
 --- !u!1 &108030588
@@ -1065,7 +1062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 4.1132507, y: -373}
+  m_AnchoredPosition: {x: 4.1132507, y: -1049}
   m_SizeDelta: {x: 11685.199, y: 2647.321}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &350463907
@@ -1561,12 +1558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
-  fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   icon: {fileID: 80325374}
   useButton: {fileID: 624520477}
   buttonText: {fileID: 512050838}
-  type: 0
   uiMngr: {fileID: 1200685101}
   plantManager: {fileID: 489823764}
 --- !u!1 &624520475
@@ -2387,12 +2381,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 500
+  m_fontSize: 700
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 500
+  m_fontSizeMax: 700
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2725,12 +2719,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
-  fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   icon: {fileID: 334792533}
   useButton: {fileID: 1748451387}
   buttonText: {fileID: 1504546131}
-  type: 0
   uiMngr: {fileID: 1200685101}
   plantManager: {fileID: 489823764}
 --- !u!1 &1048742980
@@ -3248,9 +3239,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 21424332}
-  itemsOnSale: {fileID: 108030589}
   seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
   fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
+  itemSlots:
+  - {fileID: 1282987338}
+  - {fileID: 2077723678}
+  - {fileID: 521787700}
+  - {fileID: 1886080143}
+  - {fileID: 96129338}
+  - {fileID: 1040929849}
+  futureSlots:
+  - {fileID: 350463905}
+  - {fileID: 1402164885}
+  - {fileID: 43179950}
 --- !u!1 &1252766103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,12 +3540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
-  fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   icon: {fileID: 1726454196}
   useButton: {fileID: 296431108}
   buttonText: {fileID: 258622845}
-  type: 0
   uiMngr: {fileID: 1200685101}
   plantManager: {fileID: 489823764}
 --- !u!1 &1396853116
@@ -3718,7 +3716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 4.112976, y: -664.9}
+  m_AnchoredPosition: {x: 4.112976, y: -539}
   m_SizeDelta: {x: 11685.199, y: 2647.321}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1402164887
@@ -4190,12 +4188,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 500
+  m_fontSize: 700
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 500
+  m_fontSizeMax: 700
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -4688,12 +4686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
-  fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   icon: {fileID: 1506863773}
   useButton: {fileID: 354647502}
   buttonText: {fileID: 760943753}
-  type: 0
   uiMngr: {fileID: 1200685101}
   plantManager: {fileID: 489823764}
 --- !u!1 &2048616469
@@ -4781,12 +4776,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 500
+  m_fontSize: 597.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 500
+  m_fontSizeMax: 700
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -4953,12 +4948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
-  fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   icon: {fileID: 858811179}
   useButton: {fileID: 1254133322}
   buttonText: {fileID: 1096091959}
-  type: 0
   uiMngr: {fileID: 1200685101}
   plantManager: {fileID: 489823764}
 --- !u!1 &2097084040
