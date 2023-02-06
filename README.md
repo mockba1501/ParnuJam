@@ -2,7 +2,7 @@
 This is the code base for the Carroots Educational Game Developed Using Unity &amp; C#
 
 # AboutTheProject
-This Game was developed part of the Global Game Jam held in Parnu, Estonia From 3<sup>rd</sup> to 5<sup>th</sup> February 2023
+This Game was developed part of the Global Game Jam held in Parnu From 3<sup>rd</sup> to 5<sup>th</sup> February 2023
 
 # Team
 Mohammed Ockba <sup>mockba1501</sup> - Game Designer, Developer & Programmer
