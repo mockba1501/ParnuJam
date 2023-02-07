@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("Accessing Game Manager Awake " + System.DateTime.Now.Month.ToString());
+
         if (Instance == null)
         {
             Instance = this;
@@ -28,7 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Accessing Game Manager Start " + System.DateTime.Now.Month.ToString());
+
 
     }
 

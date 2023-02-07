@@ -11,9 +11,11 @@ public class WordManager : MonoBehaviour
     //private Queue<Tuple<string, WordTypes>> wordsQueue = new Queue<Tuple<string, WordTypes>>();
     private Queue<WordItem> wordsQueue = new Queue<WordItem>();
     private List<string> correctSolutions = new List<string>();
-    /*
+    
     void Awake()
     {
+        Debug.Log("Accessing Word Manager Awake " + System.DateTime.Now.Month.ToString());
+
         if (Instance == null)
         {
             Instance = this;
@@ -22,10 +24,12 @@ public class WordManager : MonoBehaviour
         else if (Instance != this)
             Destroy(gameObject);
     }
-    */
+    
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Accessing Word Manager Start " + System.DateTime.Now.Month.ToString());
+
         //When you start the game you need to populate information from the scriptable data to formulate the words
         //Create a queue structure to include the words 
         PopulateWordOptions();

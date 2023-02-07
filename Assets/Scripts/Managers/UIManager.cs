@@ -7,9 +7,10 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public WordManager wordManager;
+
     public static UIManager uiManager { get; private set; }
 
-    public WordManager wordManager;
 
     public Sprite seedBagImg; // previously Image class
     public Sprite fertilizerBagImg; // previously Image class
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("Accessing UI Manager Awake " + System.DateTime.Now.Month.ToString());
         if (uiManager != null)
         {
             Debug.LogWarning("More than one instance of Inventory found");
@@ -31,6 +33,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Accessing UI Manager Start " + System.DateTime.Now.Month.ToString());
+
         foreach (var item in futureSlots) 
         {
             futureWords.Add(item.GetComponentInChildren<TMP_Text>());
