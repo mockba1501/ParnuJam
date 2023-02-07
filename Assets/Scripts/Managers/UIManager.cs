@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager uiManager { get; private set; }
 
-    public GameManager gameManager;
+    public WordManager wordManager;
 
     public Sprite seedBagImg; // previously Image class
     public Sprite fertilizerBagImg; // previously Image class
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var slot in itemSlots) 
         {
-            WordItem tmp = gameManager.GetWord();
+            WordItem tmp = wordManager.GetWord();
             slot.AddItem(tmp);
           //  Debug.Log($"Word added {i} {tmp.word} of type {tmp.type}");
         }
@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
 
         //Call the manager and retrieve a list of next words
 
-        List<string> topWord = gameManager.GetNextWords(3);
+        List<string> topWord = wordManager.GetNextWords(3);
         int i = 0;
         foreach (string word in topWord) 
         {

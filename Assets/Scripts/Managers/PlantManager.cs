@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using TMPro;
 
 public class PlantManager : MonoBehaviour
 {
+    //General functions to check available planting slots
+    //Highlight an empty space 
+    //Select an exsiting plant slot
+
+
 
     //Initialize the field with the children of the current PlantPos
 
@@ -23,7 +27,7 @@ public class PlantManager : MonoBehaviour
 
     //Add points to the game 
 
-    public GameObject plantParent;
+    //public GameObject plantParent;
     public List<GameObject> plantPos;
     public TMP_Text coinText;
 
