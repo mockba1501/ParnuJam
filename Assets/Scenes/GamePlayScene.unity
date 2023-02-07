@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d78cff33196b4c43bf83ef6927736fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 0
+  wordsGeneratedCounter: 0
 --- !u!1 &38498915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,6 +2645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ed2ad169b6e25408a8871287c73871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerIntance: {fileID: 21424332}
   plantPos:
   - {fileID: 1048742980}
   - {fileID: 351929570}

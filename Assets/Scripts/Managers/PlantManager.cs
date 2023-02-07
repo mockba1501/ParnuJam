@@ -10,8 +10,6 @@ public class PlantManager : MonoBehaviour
     //Highlight an empty space 
     //Select an exsiting plant slot
 
-
-
     //Initialize the field with the children of the current PlantPos
 
 
@@ -24,8 +22,7 @@ public class PlantManager : MonoBehaviour
     //If a player chooses to sell the vegetable
     //  a) Reset all the values of the prefab (make default values)
     //  b) Disable the sprite
-
-    //Add points to the game 
+    public GameManager gameManagerIntance;
 
     //public GameObject plantParent;
     public List<GameObject> plantPos;
@@ -49,6 +46,7 @@ public class PlantManager : MonoBehaviour
         int money;
         string moneyString;
 
+        money = gameManagerIntance.modifyMoney(0);
         moneyString = coinText.text;
         money = Int32.Parse(moneyString);
 
