@@ -11,7 +11,7 @@ public class WordManager : MonoBehaviour
     //private Queue<Tuple<string, WordTypes>> wordsQueue = new Queue<Tuple<string, WordTypes>>();
     private Queue<WordItem> wordsQueue = new Queue<WordItem>();
     private List<string> correctSolutions = new List<string>();
-
+    /*
     void Awake()
     {
         if (Instance == null)
@@ -22,7 +22,7 @@ public class WordManager : MonoBehaviour
         else if (Instance != this)
             Destroy(gameObject);
     }
-
+    */
     // Start is called before the first frame update
     void Start()
     {
@@ -139,6 +139,11 @@ public class WordManager : MonoBehaviour
         }
     }
 
+    //Check if the queue is empty or not
+    public bool IsEmpty()
+    {
+        return wordsQueue.Count == 0;
+    }
 
     public WordItem GetWord()
     {

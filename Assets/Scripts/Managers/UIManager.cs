@@ -50,8 +50,12 @@ public class UIManager : MonoBehaviour
     {
         foreach (var slot in itemSlots) 
         {
-            WordItem tmp = wordManager.GetWord();
-            slot.AddItem(tmp);
+            if (!wordManager.IsEmpty())
+            {
+                WordItem tmp = wordManager.GetWord();
+                slot.AddItem(tmp);
+            }
+            //If the word queue is empty then you need to clear the slot?
           //  Debug.Log($"Word added {i} {tmp.word} of type {tmp.type}");
         }
     }
