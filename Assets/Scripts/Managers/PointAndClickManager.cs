@@ -20,9 +20,9 @@ public class PointAndClickManager : MonoBehaviour
 
     public void PointAndClick() 
     {
+ 
         if (Input.GetMouseButtonDown(0))// When clicked Mouse-Left-Button
         {
-
             clickedGameObject = null;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -32,26 +32,6 @@ public class PointAndClickManager : MonoBehaviour
             {
                 clickedGameObject = hit2d.transform.gameObject;
                 Debug.Log("clicked: " + clickedGameObject.name);
-                /*
-                if (clickedGameObject.tag == "Root")
-                {
-                    playerActions.Collect();
-
-                    (clickedGameObject);
-                }
-                else if (clickedGameObject.tag == "Fertilizer")
-                {
-                    if (clickedGameObject.tag == "PlayerChamber")
-                    {
-                        whichChamber = "PlayerChamber";
-                    }
-                    else if (clickedGameObject.tag == "EnemyChamber")
-                    {
-                        whichChamber = "EnemyChamber";
-                    }
-
-                    playerActions.Throw();
-                }*/
             }
         }
     }
