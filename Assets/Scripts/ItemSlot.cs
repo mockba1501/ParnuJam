@@ -48,9 +48,13 @@ public class ItemSlot : MonoBehaviour
         a) you select a correct root combination it will grow to the following level
         b) if incorrect root nothing will happen
 
-    //3) Clear the slot and add a new word in its place
+    //3) Clear the slot and add a new word in its place     [DONE]
     //We need to invoke a call on change to push a new word 
     //Refresh all other words in the future list
+
+    //4) If the words are finished (less than 3 words remain in the list)
+    //  a) Either generate new list of words
+    //  b) Or destroy/don't show the words
 
 */
     public void UseItem()
@@ -65,6 +69,15 @@ public class ItemSlot : MonoBehaviour
     public void ClearSlot()
     {
         this.gameObject.SetActive(false);
+        Invoke("ResetSlot", 1);
         
+    }
+
+
+    public void ResetSlot()
+    {
+        uiMngr.RefreshSlot(this);
+        this.gameObject.SetActive(true);
+        uiMngr.GetNextWords();
     }
 }

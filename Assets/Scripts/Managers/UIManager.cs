@@ -81,4 +81,13 @@ public class UIManager : MonoBehaviour
         }
 
     }
+
+    public void RefreshSlot(ItemSlot slot)
+    {
+        if (!wordManager.IsEmpty())
+        {
+            WordItem tmp = wordManager.GetWord();
+            slot.AddItem(tmp);
+        }
+    }
 }
