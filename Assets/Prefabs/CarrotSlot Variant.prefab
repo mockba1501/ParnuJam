@@ -548,23 +548,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2349578096436324351, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
   m_PrefabInstance: {fileID: 3435462463616390009}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4712046130951612132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096158375632909446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rootWord: 
-  isEmpty: 0
-  level: 0
-  carrotPrefab: {fileID: 4190092917319149675}
-  currentWord: 
 --- !u!61 &4379652139086444770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -591,6 +574,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6146784, y: 1.8452207}
   m_EdgeRadius: 0
+--- !u!114 &4712046130951612132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096158375632909446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootWord: 
+  isEmpty: 0
+  level: 0
+  wordValue: 0
+  carrotPrefab: {fileID: 4190092917319149675}
+  currentWord: 
+  currentWordText: {fileID: 674287196}
+  currentWordValueText: {fileID: 2028638251}
 --- !u!1 &4190092917319149675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1552340708419648274, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}

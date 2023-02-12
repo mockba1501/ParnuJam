@@ -22,10 +22,10 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("Accessing UI Manager Awake " + System.DateTime.Now.Month.ToString());
+        //Debug.Log("Accessing UI Manager Awake " + System.DateTime.Now.Month.ToString());
         if (uiManager != null)
         {
-            Debug.LogWarning("More than one instance of Inventory found");
+            //Debug.LogWarning("More than one instance of Inventory found");
             return;
         }
         uiManager = this;
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Accessing UI Manager Start " + System.DateTime.Now.Month.ToString());
+        //Debug.Log("Accessing UI Manager Start " + System.DateTime.Now.Month.ToString());
 
         foreach (var item in futureSlots) 
         {

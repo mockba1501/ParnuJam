@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("Accessing Game Manager Awake " + System.DateTime.Now.Month.ToString());
+        //Debug.Log("Accessing Game Manager Awake " + System.DateTime.Now.Month.ToString());
 
         if (Instance == null)
         {
@@ -28,21 +28,21 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+ /*   void Start()
     {
         //Debug.Log("Accessing Game Manager Start " + System.DateTime.Now.Month.ToString());
 
 
-    }
+    }*/
 
     // Update is called once per frame
-    void Update()
+  /*  void Update()
     {
         //Winning Conditions:
         // - Check the number of generated words
         // - Check the available money
     }
-
+  */
     public int modifyMoney(int amount)
     {
         return money + amount;

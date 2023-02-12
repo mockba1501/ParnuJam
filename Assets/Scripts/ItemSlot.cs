@@ -38,7 +38,7 @@ public class ItemSlot : MonoBehaviour
 
     /*
     //When you click on an item either two things happen:
-    //1) If it was a root word and there are empty spaces in the field plant it
+    //1) If it was a root word and there are empty spaces in the field plant it [Done]
 
     //2) If it was a fertilizer:
         a) you select a correct root combination it will grow to the following level
@@ -52,6 +52,8 @@ public class ItemSlot : MonoBehaviour
     //  a) Either generate new list of words
     //  b) Or destroy/don't show the words
 
+    //Also if you click the remove button you can delete the word for a cost
+
 */
     //When you click on an item either (Root or Fertilizer)
     public void UseItem()
@@ -63,7 +65,7 @@ public class ItemSlot : MonoBehaviour
             if (plantManager.IsFree())
             {
                 //Retrieve an empty spot, pass the word info to plant
-                plantManager.EnablePlant(plantManager.FreeSpot());
+                plantManager.EnablePlant(plantManager.FreeSpot(),wordItem.word);
 
                 ClearSlot();
             }

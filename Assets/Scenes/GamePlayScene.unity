@@ -465,6 +465,7 @@ MonoBehaviour:
   - {fileID: 350463905}
   - {fileID: 1402164885}
   - {fileID: 43179950}
+  instructionSlot: {fileID: 1028473527}
 --- !u!1 &186434645
 GameObject:
   m_ObjectHideFlags: 0

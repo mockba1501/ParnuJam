@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlantManager : MonoBehaviour
 {
-    //General functions to check available planting slots
+    //General functions to check available planting slots [Done]
     //Highlight an empty space 
     //Select an exsiting plant slot
 
@@ -43,15 +43,13 @@ public class PlantManager : MonoBehaviour
 
         //Count the number of available spots
         plantSpotsCountMax = plantPos.Count;
-        for(int i =0; i< plantSpotsCountMax; i++) 
-        {
-            plantPos[i].gameObject.SetActive(false);
-        }
+
     }
 
     //Pass the word item info to the plant
-    public void EnablePlant(int pos)
+    public void EnablePlant(int pos,string word)
     {
+        Debug.Log($"Enabling the plant {word} at position {pos}");
         int money;
         string moneyString;
 
@@ -62,11 +60,11 @@ public class PlantManager : MonoBehaviour
         moneyString = coinText.text;
         money = Int32.Parse(moneyString);
 
-        if(pos < plantPos.Count && money >= 50) 
-        {
-            plantPos[pos].gameObject.SetActive(true);
-            money -= 50;
-        }
+       // if(pos < plantPos.Count && money >= 50) 
+       // {
+            plantPos[pos].PlantWord(word);
+          //  money -= 50;
+        //}
 
         coinText.text = money.ToString();
     }
