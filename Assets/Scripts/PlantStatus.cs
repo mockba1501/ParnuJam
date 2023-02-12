@@ -53,10 +53,5 @@ public class PlantStatus : MonoBehaviour
         currentWordValueText.text = wordValue.ToString();
     }
 
-    public bool ApplyFertilizer(string word, int type)
-    {
-        //if a correct combination return success else if incorrect combination return false
-        //Success
-        return true;
-    }    
+     
 }

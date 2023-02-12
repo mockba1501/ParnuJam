@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Burst.Intrinsics;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class PlantManager : MonoBehaviour
 {
@@ -14,7 +17,7 @@ public class PlantManager : MonoBehaviour
 
 
     //Create functions for:
-    // - associating a seed word with an empty spot
+    // - associating a seed word with an empty spot [Done] EnablePlant
 
     // - associate a fertilizer with an existing seed/constructed word
 
@@ -22,7 +25,8 @@ public class PlantManager : MonoBehaviour
     //If a player chooses to sell the vegetable
     //  a) Reset all the values of the prefab (make default values)
     //  b) Disable the sprite
-    public GameManager gameManagerIntance;
+    public GameManager gameManager;
+    public UIManager uiMngr;
 
     //public GameObject plantParent;
     public List<PlantStatus> plantPos;
@@ -50,23 +54,15 @@ public class PlantManager : MonoBehaviour
     public void EnablePlant(int pos,string word)
     {
         Debug.Log($"Enabling the plant {word} at position {pos}");
-        int money;
-        string moneyString;
 
         //Increment by 1
         plantSpotsCurrentCount++;
 
-        money = gameManagerIntance.modifyMoney(0);
-        moneyString = coinText.text;
-        money = Int32.Parse(moneyString);
+        plantPos[pos].PlantWord(word);
 
-       // if(pos < plantPos.Count && money >= 50) 
-       // {
-            plantPos[pos].PlantWord(word);
-          //  money -= 50;
-        //}
+        gameManager.ModifyMoney(-50);
+        uiMngr.UpdateCoinsDisplay();
 
-        coinText.text = money.ToString();
     }
 
     //Check the spots and return if there is an empty space or not
@@ -92,6 +88,38 @@ public class PlantManager : MonoBehaviour
             }
         }
         Debug.Log($"Spot {index} is free");
-        return index; 
+        return index;
     }    
+
+    public bool PlantRoot(string word)
+    {
+        // Check if there are free spots and enough money
+        if(gameManager.IsMoneySufficient())
+        {
+            if (IsFree())
+            {   
+                //Retrieve an empty spot, pass the word info to plant
+                EnablePlant(FreeSpot(), word);
+                return true;
+            }
+            else
+            {
+                uiMngr.UpdateInstructionMessage("No empty slots!");
+                return false;
+            }
+        }
+        else
+        {
+            uiMngr.UpdateInstructionMessage("Not enough money!");
+            return false;
+        }
+    }
+
+    public bool ApplyFertilizer(string word, int type)
+    {
+        //if a correct combination return success else if incorrect combination return false
+        //Success
+        return true;
+    }
+
 }

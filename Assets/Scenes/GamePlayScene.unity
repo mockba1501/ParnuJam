@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordManager: {fileID: 1939869190}
+  gameManager: {fileID: 21424332}
   seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
   fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   itemSlots:
@@ -466,6 +467,7 @@ MonoBehaviour:
   - {fileID: 1402164885}
   - {fileID: 43179950}
   instructionSlot: {fileID: 1028473527}
+  coinText: {fileID: 1487604129}
 --- !u!1 &186434645
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,7 +2670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ed2ad169b6e25408a8871287c73871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerIntance: {fileID: 21424332}
+  gameManager: {fileID: 21424332}
+  uiMngr: {fileID: 154141147}
   plantPos:
   - {fileID: 1065520213}
   - {fileID: 1651990440}

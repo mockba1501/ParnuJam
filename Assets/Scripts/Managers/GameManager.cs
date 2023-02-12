@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int money;
     [SerializeField]
-    private int wordsGeneratedCounter = 0;
+    private int wordsGeneratedCounter;
 
     void Awake()
     {
@@ -28,12 +28,11 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
- /*   void Start()
+    void Start()
     {
-        //Debug.Log("Accessing Game Manager Start " + System.DateTime.Now.Month.ToString());
-
-
-    }*/
+        money = 300;
+        wordsGeneratedCounter = 0;
+    }
 
     // Update is called once per frame
   /*  void Update()
@@ -43,13 +42,23 @@ public class GameManager : MonoBehaviour
         // - Check the available money
     }
   */
-    public int modifyMoney(int amount)
+    public void ModifyMoney(int amount)
     {
-        return money + amount;
+        money += amount;
     }
 
-    public int modifyNumOfWords(int amount) 
+    public void ModifyNumOfWords(int amount) 
     {
-        return wordsGeneratedCounter + amount;
+        wordsGeneratedCounter += amount;
     }
+
+    public int CurrentMoney()
+    { 
+        return money; 
+    }
+
+    public bool IsMoneySufficient()
+    {
+        return money >= 50;
+    }    
 }

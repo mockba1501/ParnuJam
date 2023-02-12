@@ -62,17 +62,14 @@ public class ItemSlot : MonoBehaviour
         if(this.wordItem.type == 0)
         {
             //Check if there are free spots or not
-            if (plantManager.IsFree())
-            {
-                //Retrieve an empty spot, pass the word info to plant
-                plantManager.EnablePlant(plantManager.FreeSpot(),wordItem.word);
-
+            if (plantManager.PlantRoot(wordItem.word))
+            { 
                 ClearSlot();
             }
             else
-            {
-                uiMngr.UpdateInstructionMessage("No Free Slots!");
+            {                
                 //Send a message to the user there are not empty spots! 
+                //uiMngr.UpdateInstructionMessage("No Free Slots!");
                 //Do nothing
             }
         }
@@ -93,8 +90,7 @@ public class ItemSlot : MonoBehaviour
     public void ClearSlot()
     {
         this.gameObject.SetActive(false);
-        Invoke("ResetSlot", 1);
-        
+        Invoke("ResetSlot", 1); 
     }
 
     public void ResetSlot()

@@ -8,6 +8,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public WordManager wordManager;
+    public GameManager gameManager;
 
     public static UIManager uiManager { get; private set; }
 
@@ -18,7 +19,10 @@ public class UIManager : MonoBehaviour
     public ItemSlot[] itemSlots;
     public GameObject[] futureSlots;
     List<TMP_Text> futureWords = new List<TMP_Text>();
-    public TMP_Text instructionSlot;
+    [SerializeField]
+    private TMP_Text instructionSlot;
+    [SerializeField]
+    private TMP_Text coinText;
 
     void Awake()
     {
@@ -42,6 +46,7 @@ public class UIManager : MonoBehaviour
         }
         InitilizeWordSlots();
         GetNextWords();
+        UpdateCoinsDisplay();
     }
 
     //
@@ -89,5 +94,10 @@ public class UIManager : MonoBehaviour
     public void UpdateInstructionMessage(string txt) 
     {
         instructionSlot.text = txt;
+    }
+
+    public void UpdateCoinsDisplay()
+    {
+        coinText.text = gameManager.CurrentMoney().ToString();
     }
 }
