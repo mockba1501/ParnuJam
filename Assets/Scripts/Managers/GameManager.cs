@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        money = 300;
+        money = 1000;
         wordsGeneratedCounter = 0;
     }
 
