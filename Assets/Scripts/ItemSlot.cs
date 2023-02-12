@@ -5,17 +5,20 @@ using UnityEngine.UI;
 using TMPro;
 
 public class ItemSlot : MonoBehaviour
-{   
+{
+    public GameManager gameManager;
+    public UIManager uiMngr;
+    public PlantManager plantManager;
+    
     public Image icon; // Previsously Image class
-    //public Button removeButton;
+    public Button removeButton;
     public Button useButton;
     public TMP_Text buttonText;
 
     //word item type values: //0 root, 1 prefix, 2 suffix
     public WordItem wordItem;
 
-    public UIManager uiMngr;
-    public PlantManager plantManager;
+
 
     //Adding a new word to the item slot
     public void AddItem(WordItem newItem)
@@ -81,12 +84,21 @@ public class ItemSlot : MonoBehaviour
             //  b) if incorrect root nothing will happen
         }
 
-        
-
-        //AddNextWord();
-
     }
 
+    public void RemoveItem() 
+    {
+        if(gameManager.IsMoneySufficient())
+        {
+            gameManager.ModifyMoney(-50);
+            uiMngr.UpdateCoinsDisplay();
+            ClearSlot();
+        }
+        else
+        {
+            uiMngr.UpdateInstructionMessage("Can't remove item, not enough money!");
+        }
+    }
     public void ClearSlot()
     {
         this.gameObject.SetActive(false);

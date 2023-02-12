@@ -948,6 +948,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 154141147}
     - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 21424332}
+    - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
       propertyPath: plantManager
       value: 
       objectReference: {fileID: 1525834523}
@@ -1353,6 +1357,10 @@ PrefabInstance:
       propertyPath: uiMngr
       value: 
       objectReference: {fileID: 154141147}
+    - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 21424332}
     - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
       propertyPath: plantManager
       value: 
@@ -2070,6 +2078,10 @@ PrefabInstance:
       propertyPath: uiMngr
       value: 
       objectReference: {fileID: 154141147}
+    - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 21424332}
     - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
       propertyPath: plantManager
       value: 
@@ -3058,6 +3070,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 154141147}
     - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 21424332}
+    - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
       propertyPath: plantManager
       value: 
       objectReference: {fileID: 1525834523}
@@ -3175,6 +3191,10 @@ PrefabInstance:
       propertyPath: uiMngr
       value: 
       objectReference: {fileID: 154141147}
+    - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 21424332}
     - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
       propertyPath: plantManager
       value: 
@@ -3609,6 +3629,10 @@ PrefabInstance:
       propertyPath: uiMngr
       value: 
       objectReference: {fileID: 154141147}
+    - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 21424332}
     - target: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
       propertyPath: plantManager
       value: 

@@ -8,7 +8,7 @@ public class WordManager : MonoBehaviour
 
     //Initialize the game with a list all possible scriptable object
     public List<RootWord> words;
-    //private Queue<Tuple<string, WordTypes>> wordsQueue = new Queue<Tuple<string, WordTypes>>();
+
     private Queue<WordItem> wordsQueue = new Queue<WordItem>();
     private List<string> correctSolutions = new List<string>();
     
@@ -28,20 +28,11 @@ public class WordManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Accessing Word Manager Start " + System.DateTime.Now.Month.ToString());
-
         //When you start the game you need to populate information from the scriptable data to formulate the words
         //Create a queue structure to include the words 
         PopulateWordOptions();
         //PrintWords();
         GenerateWordSolutions();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void GenerateWordSolutions()

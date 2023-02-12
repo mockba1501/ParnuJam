@@ -3,28 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.Burst.Intrinsics;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
-public class PlantManager : MonoBehaviour
-{
+/*
     //General functions to check available planting slots [Done]
-    //Highlight an empty space 
-    //Select an exsiting plant slot
+    //  - Highlight an empty space 
+    //  - Select an exsiting plant slot
 
     //Initialize the field with the children of the current PlantPos
 
-
     //Create functions for:
-    // - associating a seed word with an empty spot [Done] EnablePlant
-
-    // - associate a fertilizer with an existing seed/constructed word
-
+    //  - associating a seed word with an empty spot [Done] EnablePlant
+    //  - associate a fertilizer with an existing seed/constructed word
 
     //If a player chooses to sell the vegetable
     //  a) Reset all the values of the prefab (make default values)
-    //  b) Disable the sprite
+    //  b) Disable the sprite 
+ */
+
+public class PlantManager : MonoBehaviour
+{
     public GameManager gameManager;
     public UIManager uiMngr;
 
