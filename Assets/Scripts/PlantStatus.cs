@@ -53,5 +53,8 @@ public class PlantStatus : MonoBehaviour
         currentWordValueText.text = wordValue.ToString();
     }
 
-     
+    public bool GrowWord(string firstWord, int type) 
+    {
+        return true;
+    } 
 }

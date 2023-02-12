@@ -28,11 +28,17 @@ public class PlantManager : MonoBehaviour
     //public GameObject plantParent;
     public List<PlantStatus> plantPos;
     public TMP_Text coinText;
+    public int seedCost;
 
     [SerializeField]
     private int plantSpotsCurrentCount;
     [SerializeField]
     private int plantSpotsCountMax;
+    [SerializeField]
+    private WordItem currentWord;
+
+    private PlantStatus selectedPlant;
+    private bool isFertilizing;
 
     public static PlantManager Instance { get; private set; }
 
@@ -45,6 +51,47 @@ public class PlantManager : MonoBehaviour
         //Count the number of available spots
         plantSpotsCountMax = plantPos.Count;
 
+        seedCost = -50;
+
+        //Once you start the program this is set to false
+        isFertilizing = false;
+        selectedPlant = null;
+    }
+
+    private void Update()
+    {
+        //If the fertilizing flag is set to true check the ray cast and assign an object
+        if(isFertilizing) 
+        {
+            if(SearchingForPlant())
+            {
+                //Pass the word item
+                //Check if the new word is correct
+                //Pass new info to the plant and adjust values
+            }
+        }
+
+    }
+
+    public bool SearchingForPlant()
+    {
+        if (Input.GetMouseButtonDown(0))// When clicked Mouse-Left-Button
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if(hit2d.collider != null)
+            {
+                if(hit2d.transform.gameObject.tag == "Carrot")
+                {
+                    Debug.Log("clicked: " + hit2d.transform.gameObject.name);
+                    selectedPlant = hit2d.transform.gameObject.GetComponent<PlantStatus>();
+                    isFertilizing = false;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //Pass the word item info to the plant
@@ -57,7 +104,7 @@ public class PlantManager : MonoBehaviour
 
         plantPos[pos].PlantWord(word);
 
-        gameManager.ModifyMoney(-50);
+        gameManager.ModifyMoney(seedCost);
         uiMngr.UpdateCoinsDisplay();
 
     }
@@ -68,6 +115,12 @@ public class PlantManager : MonoBehaviour
         //If the current filled spots is equal to the maximum then it is full
         return plantSpotsCurrentCount < plantSpotsCountMax;
     }    
+
+    public bool IsEmpty()
+    {
+        return plantSpotsCurrentCount== 0;
+    }
+
     public int FreeSpot()
     { 
         int index = -1; // -1 indicates no free spots as well
@@ -90,33 +143,75 @@ public class PlantManager : MonoBehaviour
 
     public bool PlantRoot(string word)
     {
-        // Check if there are free spots and enough money
-        if(gameManager.IsMoneySufficient())
+        if (!isFertilizing)
         {
-            if (IsFree())
-            {   
-                //Retrieve an empty spot, pass the word info to plant
-                EnablePlant(FreeSpot(), word);
-                return true;
+            // Check if there are free spots and enough money
+            if (gameManager.IsMoneySufficient())
+            {
+                if (IsFree())
+                {
+                    //Retrieve an empty spot, pass the word info to plant
+                    EnablePlant(FreeSpot(), word);
+                    return true;
+                }
+                else
+                {
+                    uiMngr.UpdateInstructionMessage("No empty slots!");
+                    return false;
+                }
             }
             else
             {
-                uiMngr.UpdateInstructionMessage("No empty slots!");
+                uiMngr.UpdateInstructionMessage("Not enough money!");
                 return false;
             }
         }
         else
         {
-            uiMngr.UpdateInstructionMessage("Not enough money!");
+            uiMngr.UpdateInstructionMessage("Finish Fertilization task first!");
             return false;
         }
     }
 
-    public bool ApplyFertilizer(string word, int type)
+    public bool ApplyFertilizer(WordItem recievedWord)
     {
         //if a correct combination return success else if incorrect combination return false
         //Success
-        return true;
+
+        //The selected item is a fertilizer
+        //  a) you select a correct root combination it will grow to the following level
+        //  b) if incorrect root nothing will happen
+        // Check if there are free spots and enough money
+        if (!isFertilizing)
+        {
+            if (gameManager.IsMoneySufficient())
+            {
+                if (!IsEmpty())
+                {
+                    isFertilizing = true;
+                    currentWord = recievedWord;
+                    //Check the selected plant using Ray Cast
+                    //if()
+                    //EnablePlant(FreeSpot(), word);
+                    return true;
+                }
+                else
+                {
+                    uiMngr.UpdateInstructionMessage("Empty field, plant some roots first!");
+                    return false;
+                }
+            }
+            else
+            {
+                uiMngr.UpdateInstructionMessage("Not enough money!");
+                return false;
+            }
+        }
+        else
+        {
+            uiMngr.UpdateInstructionMessage("Finish previous fertilization task first!");
+            return false;
+        }
     }
 
 }

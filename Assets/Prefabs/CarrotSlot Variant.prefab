@@ -464,6 +464,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2349578096436324351, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
+      propertyPath: m_TagString
+      value: Carrot
+      objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_RootOrder
       value: 0

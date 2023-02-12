@@ -14,11 +14,10 @@ public class ItemSlot : MonoBehaviour
     public Button removeButton;
     public Button useButton;
     public TMP_Text buttonText;
+    public int removeCost = -50;
 
     //word item type values: //0 root, 1 prefix, 2 suffix
     public WordItem wordItem;
-
-
 
     //Adding a new word to the item slot
     public void AddItem(WordItem newItem)
@@ -78,10 +77,12 @@ public class ItemSlot : MonoBehaviour
         }
         else
         {
-            uiMngr.UpdateInstructionMessage("Can't use now!");
-            //The selected item is a fertilizer
-            //  a) you select a correct root combination it will grow to the following level
-            //  b) if incorrect root nothing will happen
+            //uiMngr.UpdateInstructionMessage("Can't use now!");
+           
+            if(plantManager.ApplyFertilizer(wordItem)) 
+            {
+                ClearSlot();
+            }
         }
 
     }
@@ -90,7 +91,7 @@ public class ItemSlot : MonoBehaviour
     {
         if(gameManager.IsMoneySufficient())
         {
-            gameManager.ModifyMoney(-50);
+            gameManager.ModifyMoney(removeCost);
             uiMngr.UpdateCoinsDisplay();
             ClearSlot();
         }
