@@ -81,6 +81,7 @@ public class ItemSlot : MonoBehaviour
            
             if(plantManager.ApplyFertilizer(wordItem)) 
             {
+
                 ClearSlot();
             }
         }

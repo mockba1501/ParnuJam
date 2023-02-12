@@ -1231,8 +1231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -30.122202, y: -50}
-  m_SizeDelta: {x: 1305.8911, y: 1036.5627}
+  m_AnchoredPosition: {x: -50.088, y: -50}
+  m_SizeDelta: {x: 2212.156, y: 1036.563}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &843589479
 MonoBehaviour:
@@ -2689,6 +2689,8 @@ MonoBehaviour:
   - {fileID: 1651990440}
   - {fileID: 870372818}
   coinText: {fileID: 1487604129}
+  seedCost: 0
+  fertilizerCost: 0
   plantSpotsCurrentCount: 0
   plantSpotsCountMax: 0
 --- !u!1 &1532547600

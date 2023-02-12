@@ -29,6 +29,7 @@ public class PlantManager : MonoBehaviour
     public List<PlantStatus> plantPos;
     public TMP_Text coinText;
     public int seedCost;
+    public int fertilizerCost;
 
     [SerializeField]
     private int plantSpotsCurrentCount;
@@ -52,6 +53,7 @@ public class PlantManager : MonoBehaviour
         plantSpotsCountMax = plantPos.Count;
 
         seedCost = -50;
+        fertilizerCost = -50;
 
         //Once you start the program this is set to false
         isFertilizing = false;
@@ -87,6 +89,7 @@ public class PlantManager : MonoBehaviour
                     Debug.Log("clicked: " + hit2d.transform.gameObject.name);
                     selectedPlant = hit2d.transform.gameObject.GetComponent<PlantStatus>();
                     isFertilizing = false;
+                    
                     return true;
                 }
             }
@@ -104,9 +107,14 @@ public class PlantManager : MonoBehaviour
 
         plantPos[pos].PlantWord(word);
 
-        gameManager.ModifyMoney(seedCost);
-        uiMngr.UpdateCoinsDisplay();
+        UpdateMoney(seedCost);
 
+    }
+
+    public void UpdateMoney(int amount)
+    {
+        gameManager.ModifyMoney(amount);
+        uiMngr.UpdateCoinsDisplay();
     }
 
     //Check the spots and return if there is an empty space or not
@@ -190,9 +198,7 @@ public class PlantManager : MonoBehaviour
                 {
                     isFertilizing = true;
                     currentWord = recievedWord;
-                    //Check the selected plant using Ray Cast
-                    //if()
-                    //EnablePlant(FreeSpot(), word);
+                    UpdateMoney(fertilizerCost);
                     return true;
                 }
                 else
