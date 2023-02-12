@@ -69,12 +69,14 @@ public class ItemSlot : MonoBehaviour
             }
             else
             {
+                uiMngr.UpdateInstructionMessage("No Free Slots!");
                 //Send a message to the user there are not empty spots! 
                 //Do nothing
             }
         }
         else
         {
+            uiMngr.UpdateInstructionMessage("Can't use now!");
             //The selected item is a fertilizer
             //  a) you select a correct root combination it will grow to the following level
             //  b) if incorrect root nothing will happen

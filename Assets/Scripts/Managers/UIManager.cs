@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public ItemSlot[] itemSlots;
     public GameObject[] futureSlots;
     List<TMP_Text> futureWords = new List<TMP_Text>();
+    public TMP_Text instructionSlot;
 
     void Awake()
     {
@@ -83,5 +84,10 @@ public class UIManager : MonoBehaviour
             WordItem tmp = wordManager.GetWord();
             slot.AddItem(tmp);
         }
+    }
+
+    public void UpdateInstructionMessage(string txt) 
+    {
+        instructionSlot.text = txt;
     }
 }
