@@ -17,12 +17,6 @@ public class ItemSlot : MonoBehaviour
     public UIManager uiMngr;
     public PlantManager plantManager;
 
-    /*
-    private void Start()
-    {
-    }
-    */
-
     //Adding a new word to the item slot
     public void AddItem(WordItem newItem)
     {
@@ -30,10 +24,12 @@ public class ItemSlot : MonoBehaviour
        
         buttonText.text = wordItem.word;
 
-        if (newItem.type == 0)
+        // type 0 is root/seed
+        if (this.wordItem.type == 0)
         {
              icon.sprite = uiMngr.seedBagImg;
-        }
+        } 
+        //other types 1,2 are suffix and prefix
         else
         {
             icon.sprite = uiMngr.fertilizerBagImg;
@@ -57,10 +53,34 @@ public class ItemSlot : MonoBehaviour
     //  b) Or destroy/don't show the words
 
 */
+    //When you click on an item either (Root or Fertilizer)
     public void UseItem()
     {
-        plantManager.EnablePlant(0);
-        ClearSlot();
+        //The selected item is a root
+        if(this.wordItem.type == 0)
+        {
+            //Check if there are free spots or not
+            if (plantManager.IsFree())
+            {
+                //Retrieve an empty spot, pass the word info to plant
+                plantManager.EnablePlant(plantManager.FreeSpot());
+
+                ClearSlot();
+            }
+            else
+            {
+                //Send a message to the user there are not empty spots! 
+                //Do nothing
+            }
+        }
+        else
+        {
+            //The selected item is a fertilizer
+            //  a) you select a correct root combination it will grow to the following level
+            //  b) if incorrect root nothing will happen
+        }
+
+        
 
         //AddNextWord();
 
@@ -72,7 +92,6 @@ public class ItemSlot : MonoBehaviour
         Invoke("ResetSlot", 1);
         
     }
-
 
     public void ResetSlot()
     {

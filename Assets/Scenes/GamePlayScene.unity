@@ -1530,6 +1530,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 323562704488590908, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
   m_PrefabInstance: {fileID: 870372816}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &870372818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+  m_PrefabInstance: {fileID: 870372816}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &887903789 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
@@ -1972,6 +1983,17 @@ Transform:
   m_Father: {fileID: 489823763}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1065520213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+  m_PrefabInstance: {fileID: 858649271}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1160909029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2647,10 +2669,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManagerIntance: {fileID: 21424332}
   plantPos:
-  - {fileID: 1048742980}
-  - {fileID: 351929570}
-  - {fileID: 2059967515}
+  - {fileID: 1065520213}
+  - {fileID: 1651990440}
+  - {fileID: 870372818}
   coinText: {fileID: 1487604129}
+  plantSpotsCurrentCount: 0
+  plantSpotsCountMax: 0
 --- !u!1 &1532547600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,6 +2954,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1651990440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+  m_PrefabInstance: {fileID: 1160909029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1721881014
 GameObject:
   m_ObjectHideFlags: 0

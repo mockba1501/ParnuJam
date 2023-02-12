@@ -43,12 +43,6 @@ public class UIManager : MonoBehaviour
         GetNextWords();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //
     public void InitilizeWordSlots()
     {

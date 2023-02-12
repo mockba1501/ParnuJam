@@ -25,26 +25,38 @@ public class PlantManager : MonoBehaviour
     public GameManager gameManagerIntance;
 
     //public GameObject plantParent;
-    public List<GameObject> plantPos;
+    public List<PlantStatus> plantPos;
     public TMP_Text coinText;
+
+    [SerializeField]
+    private int plantSpotsCurrentCount;
+    [SerializeField]
+    private int plantSpotsCountMax;
 
     public static PlantManager Instance { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i =0; i<plantPos.Count; i++) 
+        //Initialize the count to zero
+        plantSpotsCurrentCount = 0;
+
+        //Count the number of available spots
+        plantSpotsCountMax = plantPos.Count;
+        for(int i =0; i< plantSpotsCountMax; i++) 
         {
             plantPos[i].gameObject.SetActive(false);
         }
-
-
     }
 
+    //Pass the word item info to the plant
     public void EnablePlant(int pos)
     {
         int money;
         string moneyString;
+
+        //Increment by 1
+        plantSpotsCurrentCount++;
 
         money = gameManagerIntance.modifyMoney(0);
         moneyString = coinText.text;
@@ -58,9 +70,30 @@ public class PlantManager : MonoBehaviour
 
         coinText.text = money.ToString();
     }
-    // Update is called once per frame
-    void Update()
+
+    //Check the spots and return if there is an empty space or not
+    public bool IsFree()
     {
-        
-    }
+        //If the current filled spots is equal to the maximum then it is full
+        return plantSpotsCurrentCount < plantSpotsCountMax;
+    }    
+    public int FreeSpot()
+    { 
+        int index = -1; // -1 indicates no free spots as well
+
+        //Return the index of an empty spot
+        if(IsFree())
+        {
+            for (int i = 0; i < plantSpotsCountMax; i++)
+            {
+                if (plantPos[i].IsEmpty())
+                {
+                    index = i;
+                    break;
+                }
+            }
+        }
+        Debug.Log($"Spot {index} is free");
+        return index; 
+    }    
 }

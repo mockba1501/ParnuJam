@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlantStatus : MonoBehaviour
@@ -10,15 +11,19 @@ public class PlantStatus : MonoBehaviour
     public GameObject carrotPrefab;
     public string currentWord;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        isEmpty= true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsEmpty()
     {
-        
+        return isEmpty;
+    }
+
+    //Pass info from plant manager
+    public void PlantWord()
+    {
+
     }
 }
