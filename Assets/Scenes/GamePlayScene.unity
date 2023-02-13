@@ -825,8 +825,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 21424332}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 154141147}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: MuteToggle
         m_Mode: 0
         m_Arguments:
