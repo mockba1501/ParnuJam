@@ -48,6 +48,21 @@ public class WordManager : MonoBehaviour
         return correctSolutions.Contains(word);
     }
 
+    public string MixWords(string baseWord, string word, int type)
+    {
+        string newWord = string.Empty;
+        if(type == 1) //Prefix
+        {
+            newWord = word + baseWord;
+        }
+        else if(type == 2) //Suffix
+        {
+            newWord = baseWord + word;
+        }
+
+        return newWord;
+    }
+
     private void PopulateWordOptions()
     {
         int totalRoots = words.Count;

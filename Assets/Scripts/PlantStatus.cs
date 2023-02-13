@@ -17,6 +17,8 @@ public class PlantStatus : MonoBehaviour
     [SerializeField]
     private TMP_Text currentWordValueText;
 
+    public WordManager wordManager;
+
     void Start()
     {
         //To deactivate any existing plants in the field
@@ -48,13 +50,34 @@ public class PlantStatus : MonoBehaviour
         currentWord= firstWord;
 
         //Adjusting the UI of the plant
-        gameObject.SetActive(true);
-        currentWordText.text = currentWord;
-        currentWordValueText.text = wordValue.ToString();
+        UpdatePlantUI();
     }
 
     public bool GrowWord(string firstWord, int type) 
     {
-        return true;
-    } 
+        string newWord = string.Empty;
+        //Check if the new word is correct
+        newWord = wordManager.MixWords(currentWord, firstWord, type);
+
+        //If the new word is correct adjust the plant values
+        if(wordManager.CheckWord(newWord))
+        {
+            //Pass new info to the plant 
+            level += 1;
+            wordValue += 100;
+            currentWord = newWord;
+
+            UpdatePlantUI();
+            return true;
+        }
+        
+        return false;
+    }
+
+    public void UpdatePlantUI()
+    {
+        gameObject.SetActive(true);
+        currentWordText.text = currentWord;
+        currentWordValueText.text = wordValue.ToString();
+    }
 }

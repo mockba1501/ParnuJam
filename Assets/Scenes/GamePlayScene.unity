@@ -1339,6 +1339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarrotSlot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: wordManager
+      value: 
+      objectReference: {fileID: 1939869190}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
 --- !u!4 &858649272 stripped
@@ -1539,6 +1543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarrotSlot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: wordManager
+      value: 
+      objectReference: {fileID: 1939869190}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
 --- !u!4 &870372817 stripped
@@ -2065,6 +2073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarrotSlot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: wordManager
+      value: 
+      objectReference: {fileID: 1939869190}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
 --- !u!4 &1160909030 stripped

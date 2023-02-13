@@ -67,12 +67,13 @@ public class PlantManager : MonoBehaviour
         {
             if(SearchingForPlant())
             {
-                //Pass the word item
-                //Check if the new word is correct
-                //Pass new info to the plant and adjust values
+                //Pass the word item to the selected word, if it didn't work out
+                if(!selectedPlant.GrowWord(currentWord.word,currentWord.type))
+                {
+                    uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
+                }
             }
         }
-
     }
 
     public bool SearchingForPlant()
@@ -196,8 +197,8 @@ public class PlantManager : MonoBehaviour
             {
                 if (!IsEmpty())
                 {
-                    isFertilizing = true;
                     currentWord = recievedWord;
+                    isFertilizing = true;
                     UpdateMoney(fertilizerCost);
                     return true;
                 }
