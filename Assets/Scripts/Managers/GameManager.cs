@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour
         return money; 
     }
 
+    public int CurrentWordsGeneratedCounter() 
+    {
+        return wordsGeneratedCounter;
+    }
+
     public bool IsMoneySufficient()
     {
         return money >= 50;

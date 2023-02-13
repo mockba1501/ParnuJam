@@ -72,6 +72,10 @@ public class PlantManager : MonoBehaviour
                 {
                     uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
                 }
+                else
+                {
+                    UpdateWordDisplay();
+                }
             }
         }
     }
@@ -109,8 +113,13 @@ public class PlantManager : MonoBehaviour
         plantPos[pos].PlantWord(word);
 
         UpdateMoney(seedCost);
-        gameManager.IncrementWordCount();
+        UpdateWordDisplay();
 
+    }
+    public void UpdateWordDisplay()
+    {
+        gameManager.IncrementWordCount();
+        uiMngr.UpdatedWordsGeneratedCounter();
     }
 
     public void UpdateMoney(int amount)

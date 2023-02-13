@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     private TMP_Text instructionSlot;
     [SerializeField]
     private TMP_Text coinText;
+    [SerializeField]
+    private TMP_Text wordsGeneratedCounterText;
 
     void Awake()
     {
@@ -46,6 +48,7 @@ public class UIManager : MonoBehaviour
         InitilizeWordSlots();
         GetNextWords();
         UpdateCoinsDisplay();
+        UpdatedWordsGeneratedCounter();
     }
 
     //
@@ -98,5 +101,10 @@ public class UIManager : MonoBehaviour
     public void UpdateCoinsDisplay()
     {
         coinText.text = gameManager.CurrentMoney().ToString();
+    }
+
+    public void UpdatedWordsGeneratedCounter() 
+    {
+        wordsGeneratedCounterText.text = gameManager.CurrentWordsGeneratedCounter().ToString();
     }
 }
