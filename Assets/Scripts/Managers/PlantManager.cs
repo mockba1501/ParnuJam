@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static UnityEditor.PlayerSettings;
 
 /*
     //General functions to check available planting slots [Done]
