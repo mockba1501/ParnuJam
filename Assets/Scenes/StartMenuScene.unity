@@ -338,7 +338,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798668334}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadGamePlayScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -725,7 +725,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 50c6706703d576d468486199947f3fda, type: 3}
   - {fileID: 8300000, guid: 3b5bc6211e6f1ef47b26f4f08cdc9214, type: 3}
   - {fileID: 8300000, guid: 6fc68997005628947b00d5d17f7e9c7a, type: 3}
-  isSFXOn: 0
 --- !u!1 &1211241490
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +834,6 @@ MonoBehaviour:
   audioSource: {fileID: 1212701594}
   backGroundMusics:
   - {fileID: 8300000, guid: fd376185e939d264abbe944d5c836f8a, type: 3}
-  isBGMOn: 0
 --- !u!4 &1212701593
 Transform:
   m_ObjectHideFlags: 0
@@ -1096,51 +1094,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747618679}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2055616384
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2055616386}
-  - component: {fileID: 2055616385}
-  m_Layer: 0
-  m_Name: MusicControler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2055616385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055616384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6bbecef1970c9242be22990b4967c6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMusicOn: 1
---- !u!4 &2055616386
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055616384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

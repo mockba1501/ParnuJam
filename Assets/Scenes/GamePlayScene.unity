@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 471896909}
   - component: {fileID: 471896910}
   m_Layer: 5
-  m_Name: ToggleMusic
+  m_Name: MuteMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,8 +827,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 21424332}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: MusicToggler
-        m_Mode: 1
+        m_MethodName: MuteToggle
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -837,7 +837,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &489823762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1619,7 @@ GameObject:
   - component: {fileID: 863452772}
   - component: {fileID: 863452771}
   - component: {fileID: 863452770}
+  - component: {fileID: 863452773}
   m_Layer: 5
   m_Name: BackToStartButton
   m_TagString: Untagged
@@ -1690,7 +1691,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 863452771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 863452773}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadStartScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StartMenuScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &863452771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,6 +1742,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863452768}
   m_CullTransparentMesh: 1
+--- !u!114 &863452773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863452768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cccca7e2440f4149a2d853409be6867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &864324462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2187,7 +2212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music On/Off
+  m_text: Mute sounds
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}

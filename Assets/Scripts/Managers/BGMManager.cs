@@ -28,53 +28,10 @@ public class BGMManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip[] backGroundMusics;
-    public bool isBGMOn;
-    //public bool isPlayingBgm;
-
-    /*
-    public void ManageBGM(int num) // num is index of backGroundMusics: 0=BgmStart, 1=BgmPlay, 2=BgmEnd
-    {
-        audioSource.clip = this.backGroundMusics[num];
-
-        if (isBGMOn) 
-        {
-            if (!isPlayingBgm)
-            {
-                audioSource.Play();
-                isPlayingBgm = true;
-            }
-        }
-    }
-    */
 
     public void ManageBGM(int num) // num is index of backGroundMusics: 0=BgmStart, 1=BgmPlay, 2=BgmEnd
     {
         audioSource.clip = this.backGroundMusics[num];
-
-        if (isBGMOn)
-        {
-
-            audioSource.Play();
-            //isPlayingBgm = true;
-
-
-            /*if (!isPlayingBgm) 
-            {
-                audioSource.Play();
-                isPlayingBgm = true;
-            }*/
-        }
-        else 
-        {
-
-            audioSource.mute = !audioSource.mute;
-
-            /*
-            if (isPlayingBgm) 
-            {
-                audioSource.Stop();
-                isPlayingBgm = false;
-            }*/
-        }
+        audioSource.Play();
     }
 }

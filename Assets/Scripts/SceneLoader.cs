@@ -3,19 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadScene(string sceneName)
+    public void LoadGamePlayScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
         SFXManager.instance.ManageSFX(3);
     }
 
-    /*
-    public void QuitGame() 
+    public void LoadStartScene(string sceneName)
     {
-        Application.Quit();
-        BGMManager.instance.ManageBGM("Stop", 0);
-
-        Debug.Log("Quit game");
+        SceneManager.LoadScene(sceneName);
     }
-    */
 }

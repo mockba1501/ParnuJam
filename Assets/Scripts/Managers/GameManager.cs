@@ -67,8 +67,15 @@ public class GameManager : MonoBehaviour
         return money >= 50;
     }
 
-    public void MusicToggler() 
+    public void MuteToggle(bool muted)
     {
-        MusicControler.instance.Toggle();
+        if (muted)
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+        }
     }
 }
