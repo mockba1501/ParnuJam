@@ -47,9 +47,9 @@ public class GameManager : MonoBehaviour
         money += amount;
     }
 
-    public void ModifyNumOfWords(int amount) 
+    public void IncrementWordCount() 
     {
-        wordsGeneratedCounter += amount;
+        wordsGeneratedCounter++;
     }
 
     public int CurrentMoney()

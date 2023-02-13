@@ -1343,6 +1343,10 @@ PrefabInstance:
       propertyPath: wordManager
       value: 
       objectReference: {fileID: 1939869190}
+    - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: plantManager
+      value: 
+      objectReference: {fileID: 1525834523}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
 --- !u!4 &858649272 stripped
@@ -1547,6 +1551,10 @@ PrefabInstance:
       propertyPath: wordManager
       value: 
       objectReference: {fileID: 1939869190}
+    - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: plantManager
+      value: 
+      objectReference: {fileID: 1525834523}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
 --- !u!4 &870372817 stripped
@@ -2077,6 +2085,10 @@ PrefabInstance:
       propertyPath: wordManager
       value: 
       objectReference: {fileID: 1939869190}
+    - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: plantManager
+      value: 
+      objectReference: {fileID: 1525834523}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
 --- !u!4 &1160909030 stripped
@@ -3426,7 +3438,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939869188}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

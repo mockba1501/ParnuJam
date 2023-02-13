@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static UnityEditor.PlayerSettings;
 
 /*
     //General functions to check available planting slots [Done]
@@ -109,6 +110,7 @@ public class PlantManager : MonoBehaviour
         plantPos[pos].PlantWord(word);
 
         UpdateMoney(seedCost);
+        gameManager.IncrementWordCount();
 
     }
 
@@ -221,4 +223,12 @@ public class PlantManager : MonoBehaviour
         }
     }
 
+    public void SellPlant(int value)
+    {
+        //Decrement by 1
+        plantSpotsCurrentCount--;
+
+        UpdateMoney(value);
+        //gameManager.IncrementWordCount();
+    }
 }

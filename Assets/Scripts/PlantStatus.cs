@@ -18,6 +18,7 @@ public class PlantStatus : MonoBehaviour
     private TMP_Text currentWordValueText;
 
     public WordManager wordManager;
+    public PlantManager plantManager;
 
     void Start()
     {
@@ -72,6 +73,12 @@ public class PlantStatus : MonoBehaviour
         }
         
         return false;
+    }
+
+    public void HarvestWord()
+    {
+        plantManager.SellPlant(wordValue);
+        ResetPlant();
     }
 
     public void UpdatePlantUI()
