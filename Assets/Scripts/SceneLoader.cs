@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
         SFXManager.instance.ManageSFX(3);
     }
 
+    /*
     public void QuitGame() 
     {
         Application.Quit();
@@ -16,4 +17,5 @@ public class SceneLoader : MonoBehaviour
 
         Debug.Log("Quit game");
     }
+    */
 }

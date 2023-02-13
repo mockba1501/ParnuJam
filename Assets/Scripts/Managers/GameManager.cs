@@ -65,5 +65,10 @@ public class GameManager : MonoBehaviour
     public bool IsMoneySufficient()
     {
         return money >= 50;
-    }    
+    }
+
+    public void MusicToggler() 
+    {
+        MusicControler.instance.Toggle();
+    }
 }

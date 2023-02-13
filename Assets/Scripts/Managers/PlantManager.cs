@@ -71,6 +71,8 @@ public class PlantManager : MonoBehaviour
                 if(!selectedPlant.GrowWord(currentWord.word,currentWord.type))
                 {
                     uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
+
+                    SFXManager.instance.ManageSFX(4);
                 }
                 else
                 {

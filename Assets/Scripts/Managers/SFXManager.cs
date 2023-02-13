@@ -10,7 +10,7 @@ public class SFXManager : MonoBehaviour
     {
         if (instance != null)
         {
-            if (SceneManager.GetActiveScene().name == "Scene1")
+            if (SceneManager.GetActiveScene().name == "StartScreen")
             {
                 Destroy(gameObject);
             }
@@ -25,10 +25,20 @@ public class SFXManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip[] sfxMusics;
-    public bool isPlayingSfx;
+    public bool isSFXOn;
+    //public bool isPlayingSFX;
 
-    public void ManageSFX(int num) // num is index of sfxMusics: 0=Rat, 1=Cat, 2=Kid, 3=Win, 4= Draw, 5=Lose, 6=StartFight, 7=TimeOver
+    public void ManageSFX(int num) // num is index of sfxMusics: 0=, 1= , 2=
     {
-        audioSource.PlayOneShot(this.sfxMusics[num]);
+        if (isSFXOn)
+        {
+            audioSource.PlayOneShot(this.sfxMusics[num]);
+            //isPlayingSFX = true;
+        }
+        else 
+        {
+            audioSource.Stop();
+            //isPlayingSFX = false;
+        }
     }
 }
