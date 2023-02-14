@@ -42,6 +42,7 @@ public class CarrotAnimator : MonoBehaviour
                     break;
 
                 default:
+                    Debug.Log("No animation");
                     break;
             }
         }
