@@ -65,17 +65,20 @@ public class PlantManager : MonoBehaviour
         //If the fertilizing flag is set to true check the ray cast and assign an object
         if(isFertilizing) 
         {
-            if(SearchingForPlant())
+            uiMngr.UpdateInstructionMessage($"Using the {currentWord.word} fertilizer");
+            if (SearchingForPlant())
             {
                 //Pass the word item to the selected word, if it didn't work out
-                if(!selectedPlant.GrowWord(currentWord.word,currentWord.type))
+                if (!selectedPlant.GrowWord(currentWord.word,currentWord.type))
                 {
                     uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
 
-                    //SFXManager.instance.ManageSFX(4);
+                    SFXManager.instance.ManageSFX(4);
                 }
                 else
                 {
+                    SFXManager.instance.ManageSFX(1);
+                    uiMngr.UpdateInstructionMessage("Congratulations Correct Mix!");
                     UpdateWordDisplay();
                 }
             }
@@ -173,6 +176,7 @@ public class PlantManager : MonoBehaviour
                 {
                     //Retrieve an empty spot, pass the word info to plant
                     EnablePlant(FreeSpot(), word);
+                    uiMngr.UpdateInstructionMessage("Congratulations you planted a new seed!");
                     return true;
                 }
                 else
@@ -239,6 +243,8 @@ public class PlantManager : MonoBehaviour
         plantSpotsCurrentCount--;
 
         UpdateMoney(value);
+        SFXManager.instance.ManageSFX(0);
+
         //gameManager.IncrementWordCount();
     }
 }

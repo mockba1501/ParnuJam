@@ -31,7 +31,7 @@ public class WordManager : MonoBehaviour
     {
         //When you start the game you need to populate information from the scriptable data to formulate the words
         //Create a queue structure to include the words 
-        maxDisplayedStems = 15;
+        maxDisplayedStems = 25;
         Shuffle(words);
         PopulateWordOptions();
         PrintWords();

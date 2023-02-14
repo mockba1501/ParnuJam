@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int wordsGeneratedCounter;
 
+    public bool isGameOver;
+
     void Awake()
     {
         //Debug.Log("Accessing Game Manager Awake " + System.DateTime.Now.Month.ToString());
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isGameOver = false;
         money = 1000;
         wordsGeneratedCounter = 0;
     }
