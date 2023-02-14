@@ -68,7 +68,7 @@ public class PlantStatus : MonoBehaviour
             wordValue += 100;
             currentWord = newWord;
 
-            SFXManager.instance.ManageSFX(1);
+       //     SFXManager.instance.ManageSFX(1);
 
             UpdatePlantUI();
             return true;
@@ -82,7 +82,7 @@ public class PlantStatus : MonoBehaviour
         plantManager.SellPlant(wordValue);
         ResetPlant();
 
-        SFXManager.instance.ManageSFX(0);
+      //  SFXManager.instance.ManageSFX(0);
     }
 
     public void UpdatePlantUI()

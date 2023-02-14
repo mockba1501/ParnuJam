@@ -8,7 +8,7 @@ public class WordManager : MonoBehaviour
 
     //Initialize the game with a list all possible scriptable object
     public List<RootWord> words;
-    public int maxDisplayedStems = 30;
+    public int maxDisplayedStems;
 
     private Queue<WordItem> wordsQueue = new Queue<WordItem>();
     private List<string> correctSolutions = new List<string>();
@@ -31,6 +31,7 @@ public class WordManager : MonoBehaviour
     {
         //When you start the game you need to populate information from the scriptable data to formulate the words
         //Create a queue structure to include the words 
+        maxDisplayedStems = 15;
         Shuffle(words);
         PopulateWordOptions();
         PrintWords();

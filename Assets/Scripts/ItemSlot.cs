@@ -109,8 +109,12 @@ public class ItemSlot : MonoBehaviour
 
     public void ResetSlot()
     {
-        uiMngr.RefreshSlot(this);
-        this.gameObject.SetActive(true);
-        uiMngr.GetNextWords();
+        //After refreshing the slot if there are remaining words it will activate the game object
+        if (uiMngr.RefreshSlot(this))
+        {
+            this.gameObject.SetActive(true);
+            uiMngr.GetNextWords();
+        }
+        //Otherwise you can display sold out screen!
     }
 }

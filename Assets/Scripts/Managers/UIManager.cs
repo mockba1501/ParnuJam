@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text wordsGeneratedCounterText;
 
+    private int futureWordsDisplayMax;
+
     void Awake()
     {
         //Debug.Log("Accessing UI Manager Awake " + System.DateTime.Now.Month.ToString());
@@ -45,6 +48,10 @@ public class UIManager : MonoBehaviour
         {
             futureWords.Add(item.GetComponentInChildren<TMP_Text>());
         }
+
+        //Specify the number of words to be displayed
+        futureWordsDisplayMax = futureSlots.Count();
+
         InitilizeWordSlots();
         GetNextWords();
         UpdateCoinsDisplay();
@@ -69,11 +76,9 @@ public class UIManager : MonoBehaviour
     //Read the next top words and display them to be shown next
     public void GetNextWords()
     {
-        //Specify the number of words to be displayed
-
         //Call the manager and retrieve a list of next words
+        List<string> topWord = wordManager.GetNextWords(futureWordsDisplayMax);
 
-        List<string> topWord = wordManager.GetNextWords(3);
         int i = 0;
         foreach (string word in topWord) 
         {
@@ -82,15 +87,25 @@ public class UIManager : MonoBehaviour
             i++;
         }
 
+        //Condition to empty slots in case number of generated words is less than available slots
+        if(topWord.Count() < futureWordsDisplayMax)
+        {
+            for(; i< futureWordsDisplayMax; i++) 
+            {
+                futureWords[i].text = "";
+            }
+        }
     }
 
-    public void RefreshSlot(ItemSlot slot)
+    public bool RefreshSlot(ItemSlot slot)
     {
         if (!wordManager.IsEmpty())
         {
             WordItem tmp = wordManager.GetWord();
             slot.AddItem(tmp);
+            return true;
         }
+        return false;
     }
 
     public void UpdateInstructionMessage(string txt) 
