@@ -8,6 +8,7 @@ public class WordManager : MonoBehaviour
 
     //Initialize the game with a list all possible scriptable object
     public List<RootWord> words;
+    public int maxDisplayedStems = 30;
 
     private Queue<WordItem> wordsQueue = new Queue<WordItem>();
     private List<string> correctSolutions = new List<string>();
@@ -30,11 +31,22 @@ public class WordManager : MonoBehaviour
     {
         //When you start the game you need to populate information from the scriptable data to formulate the words
         //Create a queue structure to include the words 
+        Shuffle(words);
         PopulateWordOptions();
-        //PrintWords();
+        PrintWords();
         GenerateWordSolutions();
     }
 
+    public static void Shuffle(List<RootWord> values)
+    {
+        for (int i = values.Count - 1; i > 0; i--)
+        {
+            int k = Random.Range(0, i);
+            RootWord tmp = values[k];
+            values[k] = values[i];
+            values[i] = tmp;
+        }
+    }
     private void GenerateWordSolutions()
     {
         foreach (var word in words)
@@ -69,8 +81,8 @@ public class WordManager : MonoBehaviour
         int countRoots = 0;
         int countGeneratedWords = 0;
 
-        //Stop after generating 20 roots or after passing over all roots
-        while (countGeneratedWords < 20 && countRoots < totalRoots)
+        //Stop after generating maxDisplayedStems stems or after passing over all roots
+        while (countGeneratedWords < maxDisplayedStems && countRoots < totalRoots)
         {
             //Add the root word
             string tmp = words[countRoots].rootWord.ToString();
