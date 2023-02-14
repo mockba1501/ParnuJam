@@ -246,7 +246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Multiculturalism
+  m_text: cent
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.45
+  m_fontSize: 17.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -620,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3157217368641404229, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -734,6 +734,18 @@ MonoBehaviour:
   currentWordValueText: {fileID: 2028638251}
   wordManager: {fileID: 0}
   plantManager: {fileID: 0}
+--- !u!114 &1685189351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096158375632909446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c8efce7487b5946bc377d469187af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4190092917319149675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1552340708419648274, guid: b78b285840afb6a458c65dda88cd80f2, type: 3}
