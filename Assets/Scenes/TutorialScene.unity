@@ -2205,6 +2205,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1034088236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581267575088419811, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 1034088233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1174926612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2898,6 +2909,8 @@ MonoBehaviour:
   uiMngr: {fileID: 154141147}
   plantPos:
   - {fileID: 1034088235}
+  plantsOutline:
+  - {fileID: 1034088236}
   coinText: {fileID: 1487604129}
   seedCost: 0
   fertilizerCost: 0
@@ -3305,21 +3318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   words:
-  - {fileID: 11400000, guid: be0ae70958228824a92d0e3157e096ad, type: 2}
-  - {fileID: 11400000, guid: 34115858bff24fc42add14971869bb25, type: 2}
-  - {fileID: 11400000, guid: 8f92681740ae6e646b99ebf3ce08fda3, type: 2}
-  - {fileID: 11400000, guid: beb6c0cb1ce6cca4e9e4a04ae274a24e, type: 2}
-  - {fileID: 11400000, guid: b5468a4639bdd4542921a0cda6755e6a, type: 2}
-  - {fileID: 11400000, guid: d91d6102a5d4d604689b61fe0070d248, type: 2}
-  - {fileID: 11400000, guid: 693ec9d618cec83418d8ef541679ee1b, type: 2}
-  - {fileID: 11400000, guid: 92f11f1f046b25f4f923d5ad40d1f3b8, type: 2}
-  - {fileID: 11400000, guid: 51b549dbc6ba0c1419d44471bbac5318, type: 2}
-  - {fileID: 11400000, guid: 4246b9ada2860f143b493e7e394badf3, type: 2}
-  - {fileID: 11400000, guid: 6ffe85c7383f14548849bdfb2acfd562, type: 2}
   - {fileID: 11400000, guid: 1edfca592b2b2d64b83d9731785edbd2, type: 2}
-  - {fileID: 11400000, guid: e00bb5dcd85c3654bb5f9667f18132b7, type: 2}
-  - {fileID: 11400000, guid: 536062f82bcb4784480e17683e3bfd27, type: 2}
-  - {fileID: 11400000, guid: c2820a832c547de4baa26c912a4bee86, type: 2}
   maxDisplayedStems: 30
 --- !u!114 &2142718868 stripped
 MonoBehaviour:
