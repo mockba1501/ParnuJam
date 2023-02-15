@@ -27,6 +27,7 @@ public class PlantManager : MonoBehaviour
 
     //public GameObject plantParent;
     public List<PlantStatus> plantPos;
+    public List<Outline> plantsOutline;
     public TMP_Text coinText;
     public int seedCost;
     public int fertilizerCost;
@@ -40,6 +41,7 @@ public class PlantManager : MonoBehaviour
 
     private PlantStatus selectedPlant;
     private bool isFertilizing;
+    private Transform highlightedPlant;
 
     public static PlantManager Instance { get; private set; }
 
@@ -58,6 +60,8 @@ public class PlantManager : MonoBehaviour
         //Once you start the program this is set to false
         isFertilizing = false;
         selectedPlant = null;
+
+        DisableOutline();
     }
 
     private void Update()
@@ -65,7 +69,8 @@ public class PlantManager : MonoBehaviour
         //If the fertilizing flag is set to true check the ray cast and assign an object
         if(isFertilizing) 
         {
-            uiMngr.UpdateInstructionMessage($"Using the {currentWord.word} fertilizer");
+            ActivateOutline();
+            uiMngr.UpdateInstructionMessage($"Click on the carrot to apply the {currentWord.word} fertilizer");
             if (SearchingForPlant())
             {
                 //Pass the word item to the selected word, if it didn't work out
@@ -85,22 +90,52 @@ public class PlantManager : MonoBehaviour
         }
     }
 
+    public void ActivateOutline()
+    {
+        foreach (var plant in plantsOutline)
+        {
+            plant.enabled = true;
+        }
+    }
+
+    public void DisableOutline()
+    {
+        foreach (var plant in plantsOutline)
+        {
+            plant.enabled = false;
+        }    
+    }
     public bool SearchingForPlant()
     {
-        if (Input.GetMouseButtonDown(0))// When clicked Mouse-Left-Button
+        if(highlightedPlant != null)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
+            highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.white;
+            highlightedPlant = null;
+        }
 
-            if(hit2d.collider != null)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
+
+        if (hit2d.collider != null)
+        {
+            //This will change the outline color if highlighted
+            if (hit2d.transform.gameObject.tag == "Carrot")
             {
-                if(hit2d.transform.gameObject.tag == "Carrot")
+                highlightedPlant = hit2d.transform;
+                highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.red;
+            }
+
+            if (Input.GetMouseButtonDown(0))// When clicked Mouse-Left-Button
+            {
+                if (hit2d.collider != null)
                 {
-                    Debug.Log("clicked: " + hit2d.transform.gameObject.name);
-                    selectedPlant = hit2d.transform.gameObject.GetComponent<PlantStatus>();
-                    isFertilizing = false;
-                    
-                    return true;
+                    if (hit2d.transform.gameObject.tag == "Carrot")
+                    {
+                        selectedPlant = hit2d.transform.gameObject.GetComponent<PlantStatus>();
+                        isFertilizing = false;
+                        DisableOutline();
+                        return true;
+                    }
                 }
             }
         }

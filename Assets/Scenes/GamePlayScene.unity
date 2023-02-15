@@ -2099,6 +2099,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e3a3fc7ea6bcd4ea3f397cf4f44bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &890527347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581267575088419811, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 1034088233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &928353326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2280,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001267529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581267575088419811, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 4785853902666964621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1011740517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,6 +3829,10 @@ MonoBehaviour:
   - {fileID: 7893050251540158945}
   - {fileID: 1034088235}
   - {fileID: 1035190110}
+  plantsOutline:
+  - {fileID: 1001267529}
+  - {fileID: 890527347}
+  - {fileID: 1978888579}
   coinText: {fileID: 1487604129}
   seedCost: 0
   fertilizerCost: 0
@@ -4620,6 +4646,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 536062f82bcb4784480e17683e3bfd27, type: 2}
   - {fileID: 11400000, guid: c2820a832c547de4baa26c912a4bee86, type: 2}
   maxDisplayedStems: 30
+--- !u!114 &1978888579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581267575088419811, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 1035190108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2034504670 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
