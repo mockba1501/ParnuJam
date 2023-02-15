@@ -24,7 +24,7 @@ public class PlantStatus : MonoBehaviour
     {
         //To deactivate any existing plants in the field
         ResetPlant();
-        Debug.Log(level);
+        //Debug.Log(level);
     }
 
     public void ResetPlant()

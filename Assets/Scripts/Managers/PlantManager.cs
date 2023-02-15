@@ -73,7 +73,7 @@ public class PlantManager : MonoBehaviour
                 {
                     uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
 
-                    SFXManager.instance.ManageSFX(2);
+                    SFXManager.instance.ManageSFX(4);
                 }
                 else
                 {

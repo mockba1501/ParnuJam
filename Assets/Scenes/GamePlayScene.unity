@@ -470,55 +470,6 @@ MonoBehaviour:
   instructionSlot: {fileID: 1028473527}
   coinText: {fileID: 1487604129}
   wordsGeneratedCounterText: {fileID: 1449465244}
---- !u!1 &177740195
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 177740196}
-  - component: {fileID: 177740197}
-  m_Layer: 0
-  m_Name: SFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &177740196
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177740195}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -667.87006, y: -165.15306, z: 8.152487}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 949808136}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &177740197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177740195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f74e5bf4e3acb4385f673df9446088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 662937225}
-  sfxMusics:
-  - {fileID: 8300000, guid: 1e8a5dd18c4030541b5cf74ff27bc802, type: 3}
-  - {fileID: 8300000, guid: 602411130373bb0439e7b49b4a5c6de3, type: 3}
-  - {fileID: 8300000, guid: 6fc68997005628947b00d5d17f7e9c7a, type: 3}
 --- !u!1 &186434645
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,7 +2272,6 @@ Transform:
   - {fileID: 1939869189}
   - {fileID: 154141146}
   - {fileID: 1525834522}
-  - {fileID: 177740196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
