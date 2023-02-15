@@ -736,6 +736,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1034088234}
   - {fileID: 1160909030}
   m_Father: {fileID: 489823763}
   m_RootOrder: 1
@@ -2022,7 +2023,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 323562704488590908, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 323562704488590908, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2068,6 +2069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarrotSlot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1096158375632909446, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: wordManager
       value: 
@@ -2083,17 +2088,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 323562704488590908, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
   m_PrefabInstance: {fileID: 870372816}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &870372818 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
-  m_PrefabInstance: {fileID: 870372816}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &887903789 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6252760758484724644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
@@ -2639,6 +2633,168 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028473525}
   m_CullTransparentMesh: 1
+--- !u!1001 &1034088233
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 351929571}
+    m_Modifications:
+    - target: {fileID: 3450737696186189676, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: wordManager
+      value: 
+      objectReference: {fileID: 1939869190}
+    - target: {fileID: 3450737696186189676, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: plantManager
+      value: 
+      objectReference: {fileID: 1525834523}
+    - target: {fileID: 5861880141605504314, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_Name
+      value: CarrotSlotV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+--- !u!4 &1034088234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 1034088233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1034088235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3450737696186189676, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 1034088233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1035190108
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2059967516}
+    m_Modifications:
+    - target: {fileID: 3450737696186189676, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: wordManager
+      value: 
+      objectReference: {fileID: 1939869190}
+    - target: {fileID: 3450737696186189676, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: plantManager
+      value: 
+      objectReference: {fileID: 1525834523}
+    - target: {fileID: 5861880141605504314, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_Name
+      value: CarrotSlotV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+--- !u!4 &1035190109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6490325067528953728, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 1035190108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1035190110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3450737696186189676, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+  m_PrefabInstance: {fileID: 1035190108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1048742980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,7 +2837,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 323562704488590908, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 323562704488590908, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2726,6 +2882,10 @@ PrefabInstance:
     - target: {fileID: 1096158375632909446, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: m_Name
       value: CarrotSlot Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096158375632909446, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
       propertyPath: wordManager
@@ -3645,8 +3805,8 @@ MonoBehaviour:
   uiMngr: {fileID: 154141147}
   plantPos:
   - {fileID: 7893050251540158945}
-  - {fileID: 1651990440}
-  - {fileID: 870372818}
+  - {fileID: 1034088235}
+  - {fileID: 1035190110}
   coinText: {fileID: 1487604129}
   seedCost: 0
   fertilizerCost: 0
@@ -4066,17 +4226,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1651990440 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4712046130951612132, guid: cab13206c3af9e944b0d6458ecb22c5c, type: 3}
-  m_PrefabInstance: {fileID: 1160909029}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e69551f898dda468bec635554efac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1721881014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4645,6 +4794,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1035190109}
   - {fileID: 870372817}
   m_Father: {fileID: 489823763}
   m_RootOrder: 2
@@ -4890,6 +5040,18 @@ PrefabInstance:
       propertyPath: plantManager
       value: 
       objectReference: {fileID: 1525834523}
+    - target: {fileID: 3998937915325114245, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998937915325114245, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998937915325114245, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5861880141605504314, guid: b7ca52ee8012f784d8ee0e46e219a0c4, type: 3}
       propertyPath: m_Name
       value: CarrotSlotV2
