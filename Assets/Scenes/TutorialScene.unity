@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantManager: {fileID: 1525834523}
   uiManager: {fileID: 154141147}
+  wordManager: {fileID: 1939869190}
   money: 0
   wordsGeneratedCounter: 0
   isGameOver: 0

@@ -103,12 +103,24 @@ public class UIManager : MonoBehaviour
     {
         foreach (var slot in itemSlots)
         {
-            if (slot.wordItem.type == 0)
+            if (slot.wordItem.type == 0 && slot.IsSlotActive())
             {
                 return true;
             }
         }
         return false;
+    }
+
+    public bool IsSlotsEmpty()
+    {
+        foreach (var slot in itemSlots)
+        {
+            if (slot.IsSlotActive())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public bool RefreshSlot(ItemSlot slot)

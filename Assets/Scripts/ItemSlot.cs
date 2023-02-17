@@ -18,10 +18,12 @@ public class ItemSlot : MonoBehaviour
 
     //word item type values: //0 root, 1 prefix, 2 suffix
     public WordItem wordItem;
+    private bool isActive;
 
     //Adding a new word to the item slot
     public void AddItem(WordItem newItem)
     {
+        isActive = true;
         this.wordItem = newItem;
        
         buttonText.text = wordItem.word;
@@ -117,6 +119,15 @@ public class ItemSlot : MonoBehaviour
             this.gameObject.SetActive(true);
             uiMngr.GetNextWords();
         }
-        //Otherwise you can display sold out screen!
+        else //Otherwise you can display sold out screen! Or deactivate the slot
+        {
+            isActive = false;
+        }
+        
+    }
+
+    public bool IsSlotActive()
+    {
+        return isActive;
     }
 }
