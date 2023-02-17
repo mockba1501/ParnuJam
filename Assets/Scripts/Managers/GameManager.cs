@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public PlantManager plantManager;
     public UIManager uiManager;
+    public WordManager wordManager;
 
     //Game Resources & Stats
     [SerializeField]
@@ -76,10 +77,11 @@ public class GameManager : MonoBehaviour
     public void CheckWinningCondition() 
     {
         //IF there are no more slots with root words and there are no current plants
-        if(!uiManager.IsRootAvailable() && plantManager.IsEmpty())
+        if(!uiManager.IsRootAvailable() && plantManager.IsEmpty() && wordManager.IsEmpty())
         {
             isGameOver = true;
             Debug.Log("Game Over: No roots reamining");
+            uiManager.UpdateInstructionMessage("Game Over: No roots reamining");
         }
 
         //No money left and no roots available in the field
@@ -87,9 +89,16 @@ public class GameManager : MonoBehaviour
         { 
             isGameOver = true;
             Debug.Log("Game Over: No money left");
+            uiManager.UpdateInstructionMessage("Game Over: No money left");
         }
 
         //Reached the end of the available words in the shop
+        if(wordManager.IsEmpty() && uiManager.IsSlotsEmpty())
+        {
+            isGameOver = true;
+            Debug.Log("Game Over: No word stems left");
+            uiManager.UpdateInstructionMessage("Game Over: No word stems left");
 
+        }
     }
 }
