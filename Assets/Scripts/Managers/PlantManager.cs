@@ -84,6 +84,7 @@ public class PlantManager : MonoBehaviour
                 {
                     SFXManager.instance.ManageSFX(1);
                     uiMngr.UpdateInstructionMessage("Congratulations Correct Mix!");
+                    Invoke("SellOrFertilizeMessage", 1);
                     UpdateWordDisplay();
                 }
             }
@@ -145,7 +146,7 @@ public class PlantManager : MonoBehaviour
     //Pass the word item info to the plant
     public void EnablePlant(int pos,string word)
     {
-        Debug.Log($"Enabling the plant {word} at position {pos}");
+        //Debug.Log($"Enabling the plant {word} at position {pos}");
 
         //Increment by 1
         plantSpotsCurrentCount++;
@@ -212,6 +213,7 @@ public class PlantManager : MonoBehaviour
                     //Retrieve an empty spot, pass the word info to plant
                     EnablePlant(FreeSpot(), word);
                     uiMngr.UpdateInstructionMessage("Congratulations you planted a new seed!");
+                    Invoke("FertilizeMessage", 1);
                     return true;
                 }
                 else
@@ -279,7 +281,23 @@ public class PlantManager : MonoBehaviour
 
         UpdateMoney(value);
         SFXManager.instance.ManageSFX(0);
-
+        uiMngr.UpdateInstructionMessage("Congratulations you generated some money!");
+        Invoke("PlantSeedMessage", 1);
         //gameManager.IncrementWordCount();
+    }
+
+    public void PlantSeedMessage()
+    {
+        uiMngr.UpdateInstructionMessage("Choose a seed to plant!");
+    }
+
+    public void SellOrFertilizeMessage()
+    {
+        uiMngr.UpdateInstructionMessage("You can sell the plant or use a fertilizer to grow your plant bigger!");
+    }
+
+    public void FertilizeMessage()
+    {
+        uiMngr.UpdateInstructionMessage("Use a fertilizer to grow your plant!");
     }
 }
