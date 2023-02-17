@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public PlantManager plantManager;
+    public UIManager uiManager;
 
     //Game Resources & Stats
     [SerializeField]
@@ -68,5 +71,25 @@ public class GameManager : MonoBehaviour
     public bool IsMoneySufficient()
     {
         return money >= 50;
+    }
+
+    public void CheckWinningCondition() 
+    {
+        //IF there are no more slots with root words and there are no current plants
+        if(!uiManager.IsRootAvailable() && plantManager.IsEmpty())
+        {
+            isGameOver = true;
+            Debug.Log("Game Over: No roots reamining");
+        }
+
+        //No money left and no roots available in the field
+        if(money < 50 && plantManager.IsEmpty())
+        { 
+            isGameOver = true;
+            Debug.Log("Game Over: No money left");
+        }
+
+        //Reached the end of the available words in the shop
+
     }
 }

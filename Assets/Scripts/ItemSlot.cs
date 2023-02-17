@@ -85,6 +85,7 @@ public class ItemSlot : MonoBehaviour
                 ClearSlot();
             }
         }
+        gameManager.CheckWinningCondition();
 
     }
 
@@ -95,6 +96,7 @@ public class ItemSlot : MonoBehaviour
             gameManager.ModifyMoney(removeCost);
             uiMngr.UpdateCoinsDisplay();
             ClearSlot();
+            gameManager.CheckWinningCondition();
         }
         else
         {

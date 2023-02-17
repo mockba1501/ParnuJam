@@ -97,6 +97,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public bool IsRootAvailable()
+    {
+        foreach (var slot in itemSlots)
+        {
+            if (slot.wordItem.type == 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public bool RefreshSlot(ItemSlot slot)
     {
         if (!wordManager.IsEmpty())

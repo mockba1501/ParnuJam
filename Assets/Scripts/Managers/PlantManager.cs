@@ -283,6 +283,9 @@ public class PlantManager : MonoBehaviour
         SFXManager.instance.ManageSFX(0);
         uiMngr.UpdateInstructionMessage("Congratulations you generated some money!");
         Invoke("PlantSeedMessage", 1);
+        
+        //Checking winning condition behavior
+        gameManager.CheckWinningCondition();
         //gameManager.IncrementWordCount();
     }
 

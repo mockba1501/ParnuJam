@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d78cff33196b4c43bf83ef6927736fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantManager: {fileID: 1525834523}
+  uiManager: {fileID: 154141147}
   money: 0
   wordsGeneratedCounter: 0
   isGameOver: 0
