@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 726525339}
   - component: {fileID: 726525338}
   m_Layer: 5
-  m_Name: StartMenuButton
+  m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6325,7 +6325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Menu
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -6460,7 +6460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Menu
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
   m_sharedMaterial: {fileID: -3623612892840910174, guid: acb4868bf2b18c540bd970ce812c938a, type: 2}
@@ -7198,7 +7198,7 @@ GameObject:
   - component: {fileID: 2104929760}
   - component: {fileID: 2104929763}
   m_Layer: 5
-  m_Name: StartMenuButton
+  m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
