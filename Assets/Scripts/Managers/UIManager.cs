@@ -12,12 +12,14 @@ public class UIManager : MonoBehaviour
 
     public static UIManager uiManager { get; private set; }
 
-
     public Sprite seedBagImg; // previously Image class
     public Sprite fertilizerBagImg; // previously Image class
     
     public ItemSlot[] itemSlots;
     public GameObject[] futureSlots;
+
+    public GameObject[] popups;
+
     List<TMP_Text> futureWords = new List<TMP_Text>();
     [SerializeField]
     private TMP_Text instructionSlot;
@@ -135,6 +137,7 @@ public class UIManager : MonoBehaviour
         wordsGeneratedCounterText.text = gameManager.CurrentWordsGeneratedCounter().ToString();
     }
 
+    // Sound mute toggler
     public void MuteToggle(bool muted)
     {
         if (muted)
@@ -145,5 +148,16 @@ public class UIManager : MonoBehaviour
         {
             AudioListener.volume = 1;
         }
+    }
+
+    // Open or close popups
+    public void OpenPopUp(GameObject popUp) 
+    {
+        popUp.SetActive(true);
+    }
+
+    public void ClosePopUp(GameObject popUp)
+    {
+        popUp.SetActive(false);
     }
 }
