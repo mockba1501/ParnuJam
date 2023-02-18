@@ -42,13 +42,19 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-  /*  void Update()
+    void Update()
     {
+        if (isGameOver)
+        {
+            DisableGameButtons();
+            uiManager.UpdateInstructionMessage("Game Over:");
+            //Call Popup Message
+        }
         //Winning Conditions:
         // - Check the number of generated words
         // - Check the available money
     }
-  */
+
     public void ModifyMoney(int amount)
     {
         money += amount;
@@ -100,6 +106,8 @@ public class GameManager : MonoBehaviour
             uiManager.UpdateInstructionMessage("Game Over: No word stems left");
 
         }
+
+        
     }
 
     public void DisableGameButtons()

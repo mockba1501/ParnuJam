@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
+    public List<Popup> popupMessages;
+
     // Start is called before the first frame update
     void Start()
     {
