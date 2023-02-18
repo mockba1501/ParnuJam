@@ -540,10 +540,10 @@ MonoBehaviour:
   isEmpty: 0
   level: 0
   wordValue: 0
-  carrotPrefab: {fileID: 919132149155446097, guid: 87312aa5344f8114da766abf92fdd8e5, type: 3}
   currentWord: 
   currentWordText: {fileID: 5143221226704856540}
   currentWordValueText: {fileID: 4251117234526711794}
+  sellButton: {fileID: 3024360376494547757}
   wordManager: {fileID: 0}
   plantManager: {fileID: 0}
 --- !u!1 &5907809529092077176

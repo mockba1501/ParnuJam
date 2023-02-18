@@ -106,6 +106,22 @@ public class PlantManager : MonoBehaviour
             plant.enabled = false;
         }    
     }
+
+    public void ActivateButtons()
+    {
+        foreach (var plant in plantPos)
+        {
+            plant.EnableSellButton();
+        }
+    }
+
+    public void DisableButtons()
+    {
+        foreach (var plant in plantPos)
+        {
+            plant.DisableSellButton();
+        }
+    }
     public bool SearchingForPlant()
     {
         if(highlightedPlant != null)

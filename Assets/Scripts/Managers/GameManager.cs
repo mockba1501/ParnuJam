@@ -101,4 +101,16 @@ public class GameManager : MonoBehaviour
 
         }
     }
+
+    public void DisableGameButtons()
+    {
+        uiManager.DisableSlots();
+        plantManager.DisableButtons();
+    }
+
+    public void EnableGameButtons()
+    {
+        uiManager.ActivateSlots();
+        plantManager.ActivateButtons();
+    }
 }

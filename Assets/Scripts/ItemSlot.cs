@@ -130,4 +130,16 @@ public class ItemSlot : MonoBehaviour
     {
         return isActive;
     }
+
+    public void DisableItemSlotButtons()
+    {
+        removeButton.interactable = false;
+        useButton.interactable = false;
+    }
+
+    public void EnableItemSlotButtons()
+    {
+        removeButton.interactable = true;
+        useButton.interactable = true;
+    }
 }

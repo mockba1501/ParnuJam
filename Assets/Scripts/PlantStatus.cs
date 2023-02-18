@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlantStatus : MonoBehaviour
 {
@@ -9,13 +10,14 @@ public class PlantStatus : MonoBehaviour
     public bool isEmpty;
     public int level;
     public int wordValue;
-    public GameObject carrotPrefab;
     public string currentWord;
 
+    //public GameObject carrotPrefab;
     [SerializeField]
     private TMP_Text currentWordText;
     [SerializeField]
     private TMP_Text currentWordValueText;
+    public Button sellButton;
 
     public WordManager wordManager;
     public PlantManager plantManager;
@@ -87,5 +89,15 @@ public class PlantStatus : MonoBehaviour
         gameObject.SetActive(true);
         currentWordText.text = currentWord;
         currentWordValueText.text = wordValue.ToString();
+    }
+
+    public void DisableSellButton()
+    {
+        sellButton.interactable = false;
+    }
+
+    public void EnableSellButton()
+    {
+        sellButton.interactable = true;
     }
 }

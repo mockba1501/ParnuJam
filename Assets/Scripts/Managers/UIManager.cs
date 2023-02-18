@@ -75,6 +75,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ActivateSlots()
+    {
+        foreach (var slot in itemSlots)
+        {
+            slot.EnableItemSlotButtons();
+        }
+    }
+
+    public void DisableSlots()
+    {
+        foreach (var slot in itemSlots)
+        {
+            slot.DisableItemSlotButtons();
+        }
+    }
+
     //Read the next top words and display them to be shown next
     public void GetNextWords()
     {
