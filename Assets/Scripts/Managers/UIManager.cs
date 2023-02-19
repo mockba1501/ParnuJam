@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour
     public ItemSlot[] itemSlots;
     public GameObject[] futureSlots;
 
-    public GameObject[] popups;
+    public Popup gameOverPopup;
+    public Popup confirmationPopup;
 
     List<TMP_Text> futureWords = new List<TMP_Text>();
     [SerializeField]
@@ -179,13 +180,19 @@ public class UIManager : MonoBehaviour
     }
 
     // Open or close popups
-    public void OpenPopUp(GameObject popUp) 
+    public void OpenPopUp(Popup popupPanel) 
     {
-        popUp.SetActive(true);
+        popupPanel.DisplayPopUp();
     }
 
-    public void ClosePopUp(GameObject popUp)
+    public void ClosePopUp(Popup popupPanel)
     {
-        popUp.SetActive(false);
+        popupPanel.HidePopUp();
+    }
+
+    public void UpdateGameOverMessage(string txt)
+    {
+        gameOverPopup.AdjustPopupMessage(txt);
+        OpenPopUp(gameOverPopup);
     }
 }

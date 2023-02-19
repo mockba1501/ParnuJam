@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         if (isGameOver)
         {
             DisableGameButtons();
-            uiManager.UpdateInstructionMessage("Game Over:");
+            uiManager.UpdateInstructionMessage("Game Over");
             //Call Popup Message
         }
         //Winning Conditions:
@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             Debug.Log("Game Over: No roots reamining");
             uiManager.UpdateInstructionMessage("Game Over: No roots reamining");
+            uiManager.UpdateGameOverMessage("Game Over: No roots reamining");
         }
 
         //No money left and no roots available in the field
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             Debug.Log("Game Over: No money left");
             uiManager.UpdateInstructionMessage("Game Over: No money left");
+            uiManager.UpdateGameOverMessage("Game Over: No money left");
         }
 
         //Reached the end of the available words in the shop
@@ -104,10 +106,10 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             Debug.Log("Game Over: No word stems left");
             uiManager.UpdateInstructionMessage("Game Over: No word stems left");
+            uiManager.UpdateGameOverMessage("Game Over: No word stems left");
 
         }
 
-        
     }
 
     public void DisableGameButtons()

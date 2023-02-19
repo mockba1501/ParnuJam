@@ -617,10 +617,8 @@ MonoBehaviour:
   - {fileID: 350463905}
   - {fileID: 1402164885}
   - {fileID: 43179950}
-  popups:
-  - {fileID: 2103628326}
-  - {fileID: 0}
-  - {fileID: 1058044327}
+  gameOverPopup: {fileID: 2103628330}
+  confirmationPopup: {fileID: 1058044329}
   instructionSlot: {fileID: 1028473527}
   coinText: {fileID: 1487604129}
   wordsGeneratedCounterText: {fileID: 1449465244}
@@ -2283,13 +2281,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 863452773}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadStartMenuScene
-        m_Mode: 1
+      - m_Target: {fileID: 154141147}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenPopUp
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1058044329}
+          m_ObjectArgumentAssemblyTypeName: Popup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3332,7 +3330,7 @@ GameObject:
   - component: {fileID: 1058044330}
   - component: {fileID: 1058044329}
   m_Layer: 5
-  m_Name: PopupExitOrNot
+  m_Name: PopupExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3514,8 +3512,8 @@ MonoBehaviour:
         m_MethodName: ClosePopUp
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1058044327}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1058044329}
+          m_ObjectArgumentAssemblyTypeName: Popup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6311,7 +6309,7 @@ GameObject:
   - component: {fileID: 2103628328}
   - component: {fileID: 2103628330}
   m_Layer: 5
-  m_Name: PopupCongratulations
+  m_Name: PopupGameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
