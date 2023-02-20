@@ -151,6 +151,11 @@ public class WordManager : MonoBehaviour
 
     }
 
+    public int GetStemCount()
+    {
+        return wordsQueue.Count;
+    }
+
     public void PrintWords()
     {
         int i = 0;

@@ -87,22 +87,31 @@ public class ItemSlot : MonoBehaviour
                 ClearSlot();
             }
         }
-        gameManager.CheckWinningCondition();
+        
+        //gameManager.CheckWinningCondition();
 
     }
 
     public void RemoveItem() 
     {
-        if(gameManager.IsMoneySufficient())
+        if (!plantManager.IsFertilizing())
         {
-            gameManager.ModifyMoney(removeCost);
-            uiMngr.UpdateCoinsDisplay();
-            ClearSlot();
-            gameManager.CheckWinningCondition();
+            if (gameManager.IsMoneySufficient())
+            {
+                gameManager.ModifyMoney(removeCost);
+                uiMngr.UpdateCoinsDisplay();
+                ClearSlot();
+                //gameManager.CheckWinningCondition();
+            }
+            else
+            {
+                uiMngr.UpdateInstructionMessage("Can't remove item, not enough money!");
+            }
         }
         else
         {
-            uiMngr.UpdateInstructionMessage("Can't remove item, not enough money!");
+            Debug.Log("Can't remove item, finish fertilizing first!");
+            uiMngr.UpdateInstructionMessage("Can't remove item, finish fertilizing first!");
         }
     }
     public void ClearSlot()
@@ -122,8 +131,10 @@ public class ItemSlot : MonoBehaviour
         else //Otherwise you can display sold out screen! Or deactivate the slot
         {
             isActive = false;
+            gameManager.CheckWinningCondition();
         }
         
+
     }
 
     public bool IsSlotActive()

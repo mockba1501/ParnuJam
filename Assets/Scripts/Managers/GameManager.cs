@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int wordsGeneratedCounter;
 
+    private int wordWinningTarget;
     public bool isGameOver;
+    public bool isWin;
 
     void Awake()
     {
@@ -37,8 +39,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isGameOver = false;
+        isWin = false;
         money = 1000;
         wordsGeneratedCounter = 0;
+        wordWinningTarget = wordManager.GetStemCount()/2 + 1;
     }
 
     // Update is called once per frame
@@ -47,8 +51,15 @@ public class GameManager : MonoBehaviour
         if (isGameOver)
         {
             DisableGameButtons();
-            uiManager.UpdateInstructionMessage("Game Over");
-            //Call Popup Message
+            if (isWin)
+            {
+                uiManager.UpdateInstructionMessage("Game Over: You Win");
+            }
+            else
+            {
+                uiManager.UpdateInstructionMessage("Game Over: You Lose");
+            }
+            
         }
         //Winning Conditions:
         // - Check the number of generated words
@@ -75,6 +86,10 @@ public class GameManager : MonoBehaviour
         return wordsGeneratedCounter;
     }
 
+    public int GetWordWinningTarget()
+    {
+        return wordWinningTarget;
+    }
     public bool IsMoneySufficient()
     {
         return money >= 50;
@@ -82,15 +97,23 @@ public class GameManager : MonoBehaviour
 
     public void CheckWinningCondition() 
     {
+        if (wordsGeneratedCounter == wordWinningTarget)
+        {
+            isGameOver = true;
+            isWin = true;
+            uiManager.UpdateInstructionMessage("Congratulations You Won");
+            uiManager.UpdateGameOverMessage("Congratulations You Won");
+        }
+        else
         //IF there are no more slots with root words and there are no current plants
-        if(!uiManager.IsRootAvailable() && plantManager.IsEmpty() && wordManager.IsEmpty())
+        if (!uiManager.IsRootAvailable() && plantManager.IsEmpty() && wordManager.IsEmpty())
         {
             isGameOver = true;
             Debug.Log("Game Over: No roots reamining");
             uiManager.UpdateInstructionMessage("Game Over: No roots reamining");
             uiManager.UpdateGameOverMessage("Game Over: No roots reamining");
         }
-
+        else
         //No money left and no roots available in the field
         if(money < 50 && plantManager.IsEmpty())
         { 
@@ -99,7 +122,7 @@ public class GameManager : MonoBehaviour
             uiManager.UpdateInstructionMessage("Game Over: No money left");
             uiManager.UpdateGameOverMessage("Game Over: No money left");
         }
-
+        else
         //Reached the end of the available words in the shop
         if(wordManager.IsEmpty() && uiManager.IsSlotsEmpty())
         {

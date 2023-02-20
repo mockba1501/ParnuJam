@@ -11,7 +11,7 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         popupIndex = 0;
-        DisplayTip();
+        //DisplayTip();
     }
 
     /*

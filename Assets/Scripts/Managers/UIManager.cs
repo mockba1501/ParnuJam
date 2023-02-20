@@ -27,7 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text coinText;
     [SerializeField]
-    private TMP_Text wordsGeneratedCounterText;
+    private TMP_Text wordsCounterText;
+    [SerializeField]
+    private TMP_Text wordsTargetText;
 
     private int futureWordsDisplayMax;
 
@@ -59,6 +61,7 @@ public class UIManager : MonoBehaviour
         GetNextWords();
         UpdateCoinsDisplay();
         UpdatedWordsGeneratedCounter();
+        UpdatedWordsTargetText();
     }
 
     //
@@ -163,9 +166,13 @@ public class UIManager : MonoBehaviour
 
     public void UpdatedWordsGeneratedCounter() 
     {
-        wordsGeneratedCounterText.text = gameManager.CurrentWordsGeneratedCounter().ToString();
+        wordsCounterText.text = gameManager.CurrentWordsGeneratedCounter().ToString();
     }
 
+    public void UpdatedWordsTargetText()
+    {
+        wordsTargetText.text = "Out of " + gameManager.GetWordWinningTarget().ToString();
+    }
     // Sound mute toggler
     public void MuteToggle(bool muted)
     {

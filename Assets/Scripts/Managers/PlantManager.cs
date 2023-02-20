@@ -70,7 +70,7 @@ public class PlantManager : MonoBehaviour
         if(isFertilizing) 
         {
             ActivateOutline();
-            uiMngr.UpdateInstructionMessage($"Click on the carrot to apply the {currentWord.word} fertilizer");
+            //uiMngr.UpdateInstructionMessage($"Click on the carrot to apply the {currentWord.word} fertilizer");
             if (SearchingForPlant())
             {
                 //Pass the word item to the selected word, if it didn't work out
@@ -87,6 +87,7 @@ public class PlantManager : MonoBehaviour
                     Invoke("SellOrFertilizeMessage", 1);
                     UpdateWordDisplay();
                 }
+                gameManager.CheckWinningCondition();
             }
         }
     }
@@ -156,6 +157,7 @@ public class PlantManager : MonoBehaviour
                 }
             }
         }
+        
         return false;
     }
 
@@ -195,6 +197,11 @@ public class PlantManager : MonoBehaviour
     public bool IsEmpty()
     {
         return plantSpotsCurrentCount== 0;
+    }
+
+    public bool IsFertilizing()
+    {
+        return isFertilizing;
     }
 
     public int FreeSpot()
@@ -268,6 +275,7 @@ public class PlantManager : MonoBehaviour
                 {
                     currentWord = recievedWord;
                     isFertilizing = true;
+                    uiMngr.UpdateInstructionMessage($"Click on the carrot to apply the {currentWord.word} fertilizer");
                     UpdateMoney(fertilizerCost);
                     return true;
                 }
