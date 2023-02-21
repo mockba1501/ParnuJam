@@ -11,41 +11,22 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         popupIndex = 0;
-        //DisplayTip();
+        DisplayTip();
     }
 
-    /*
-    // Update is called once per frame
-    void Update()
+    public void DisplayTip()
     {
-        for (int i = 0; i < popupMessages.Count; i++)
-        {
-            if(i == popupIndex)
-            {
-                popupMessages[i].gameObject.SetActive(true);
-            }
-        }
+        popupMessages[popupIndex].DisplayPopUp();
     }
-    */
-
-    // Open or close popups
-    public void OpenPopUp(GameObject popUp)
+    public void MoveToNextTip()
     {
-        popUp.SetActive(true);
-    }
-
-    public void ClosePopUp(GameObject popUp)
-    {
-        popUp.SetActive(false);
-    }
-    void DisplayTip()
-    {
-        popupMessages[popupIndex].gameObject.SetActive(true);
-    }
-    void MoveToNextTip()
-    {
-        popupMessages[popupIndex].gameObject.SetActive(false);
+        popupMessages[popupIndex].HidePopUp();
         popupIndex++;
-        popupMessages[popupIndex].gameObject.SetActive(true);
+        popupMessages[popupIndex].DisplayPopUp();
+    }
+
+    public void ExitPopUp()
+    {
+        popupMessages[popupIndex].HidePopUp();
     }
 }

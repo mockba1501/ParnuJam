@@ -131,10 +131,10 @@ public class ItemSlot : MonoBehaviour
         else //Otherwise you can display sold out screen! Or deactivate the slot
         {
             isActive = false;
-            gameManager.CheckWinningCondition();
+            
         }
-        
 
+        gameManager.CheckWinningCondition();
     }
 
     public bool IsSlotActive()
