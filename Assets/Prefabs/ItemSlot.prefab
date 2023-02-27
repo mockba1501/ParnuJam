@@ -67,6 +67,7 @@ MonoBehaviour:
   removeButton: {fileID: 6252760760286420327}
   useButton: {fileID: 6252760760031121642}
   buttonText: {fileID: 6252760759540480915}
+  removeCost: -50
 --- !u!1 &6252760759112345436
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +438,7 @@ RectTransform:
   m_GameObject: {fileID: 6252760760286420329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6252760758484724649}
@@ -445,7 +446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 827.595, y: 386.319}
+  m_AnchoredPosition: {x: -806, y: 386.319}
   m_SizeDelta: {x: 448.382, y: 280.213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6252760760286420325
@@ -476,7 +477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a50fc382f7c65a54e8e69ee80462c8f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83e20084bf7d9f34bbcc8b9ca06e81a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -505,7 +506,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -515,8 +516,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: a14318f791475c4498cf2b65bf892af5, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 5460df8ae398bd946ac7e45eb5dd120f, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
