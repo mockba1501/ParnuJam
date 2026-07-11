@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         money = 1000;
         wordsGeneratedCounter = 0;
         wordWinningTarget = wordManager.GetStemCount()/2 + 1;
+        
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.ManageBGM(0);
+        }
     }
 
     // Update is called once per frame

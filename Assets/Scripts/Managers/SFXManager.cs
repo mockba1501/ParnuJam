@@ -1,33 +1,88 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SFXManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] sfxMusicClips;
+    
     #region Singleton
-    public static SFXManager instance;
-
+    public static SFXManager Instance { get; private set; }
+    
     void Awake()
     {
-        if (instance != null)
+        if (Instance != null && Instance != this)
         {
-            if (SceneManager.GetActiveScene().name == "StartScreen")
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject); 
             return;
         }
 
-        instance = this;
-
-        DontDestroyOnLoad(gameObject);// not delete data
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        SetupAudio();
     }
+    
     #endregion
+    
+    private void SetupAudio()
+    {
+        // Check for existing AudioSource (manual assignment)
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
-    public AudioSource audioSource;
-    public AudioClip[] sfxMusics;
+        // Create if still null
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            Debug.Log("SFXManager: Audio Source auto created");
+        }
+                
+        // Configure
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+        audioSource.volume = 1f;
 
+        // Load clips if not manually assigned
+        if (sfxMusicClips == null || sfxMusicClips.Length == 0)
+        {
+            LoadAudioClipsFromResources();
+        }
+    }
+
+    private void LoadAudioClipsFromResources()
+    {
+        sfxMusicClips = Resources.LoadAll<AudioClip>("Audio/SFXs/");
+    }
+    
+        
     public void ManageSFX(int num) // num is index of sfxMusics: 0=, 1= , 2=
     {
-        audioSource.PlayOneShot(this.sfxMusics[num]);
+        // All safety checks
+        if (audioSource == null)
+        {
+            Debug.LogError($"SFXManager: AudioSource is null! Sound {num} not played.");
+            return;
+        }
+        
+        if (sfxMusicClips == null || sfxMusicClips.Length == 0)
+        {
+            Debug.LogError($"SFXManager: No audio clips loaded! Sound {num} not played.");
+            return;
+        }
+        
+        if (num < 0 || num >= sfxMusicClips.Length)
+        {
+            Debug.LogError($"SFXManager: Sound index {num} out of range.");
+            return;
+        }
+        
+        if (sfxMusicClips[num] == null)
+        {
+            Debug.LogError($"SFXManager: Audio clip at index {num} is null!");
+            return;
+        }
+        
+        audioSource.PlayOneShot(this.sfxMusicClips[num]);
     }
 }

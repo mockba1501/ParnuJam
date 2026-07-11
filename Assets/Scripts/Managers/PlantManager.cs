@@ -77,12 +77,21 @@ public class PlantManager : MonoBehaviour
                 if (!selectedPlant.GrowWord(currentWord.word,currentWord.type))
                 {
                     uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
-
-                    SFXManager.instance.ManageSFX(4);
+                    if(SFXManager.Instance != null)
+                        SFXManager.Instance.ManageSFX(4);
+                    else
+                    {
+                        Debug.Log("SFX Manager not found!");
+                    }
                 }
                 else
                 {
-                    SFXManager.instance.ManageSFX(1);
+                    if(SFXManager.Instance != null)
+                        SFXManager.Instance.ManageSFX(1);
+                    else
+                    {
+                        Debug.Log("SFX Manager not found!");
+                    }
                     uiMngr.UpdateInstructionMessage("Congratulations Correct Mix!");
                     Invoke("SellOrFertilizeMessage", 1);
                     UpdateWordDisplay();
@@ -304,7 +313,12 @@ public class PlantManager : MonoBehaviour
         plantSpotsCurrentCount--;
 
         UpdateMoney(value);
-        SFXManager.instance.ManageSFX(0);
+        if(SFXManager.Instance != null)
+            SFXManager.Instance.ManageSFX(0);
+        else
+        {
+            Debug.Log("SFX Manager not found!");
+        }
         uiMngr.UpdateInstructionMessage("Congratulations you generated some money!");
         Invoke("PlantSeedMessage", 1);
         
