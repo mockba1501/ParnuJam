@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 /*
@@ -42,9 +43,39 @@ public class PlantManager : MonoBehaviour
     private PlantStatus selectedPlant;
     private bool isFertilizing;
     private Transform highlightedPlant;
+    private InputSystem_Actions inputSystemActions;
 
     public static PlantManager Instance { get; private set; }
 
+    void Awake()
+    {
+        inputSystemActions = new InputSystem_Actions();
+        if(Instance == null)
+            Instance = this;
+        else
+        {
+            Destroy(this);
+        }
+    }
+    
+    private void OnDestroy()
+    {
+        inputSystemActions.Dispose();
+    }
+    private void OnEnable()
+    {
+        inputSystemActions.UI.Click.performed += OnClick;
+        inputSystemActions.UI.Point.performed += OnMouseMove;
+        inputSystemActions.UI.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputSystemActions.UI.Click.performed -= OnClick;
+        inputSystemActions.UI.Point.performed -= OnMouseMove;
+        inputSystemActions.UI.Disable();
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -54,8 +85,8 @@ public class PlantManager : MonoBehaviour
         //Count the number of available spots
         plantSpotsCountMax = plantPos.Count;
 
-        seedCost = -50;
-        fertilizerCost = -50;
+        seedCost = 50;
+        fertilizerCost = 50;
 
         //Once you start the program this is set to false
         isFertilizing = false;
@@ -70,14 +101,46 @@ public class PlantManager : MonoBehaviour
         if(isFertilizing) 
         {
             ActivateOutline();
-            //uiMngr.UpdateInstructionMessage($"Click on the carrot to apply the {currentWord.word} fertilizer");
-            if (SearchingForPlant())
+        }
+    }
+
+    private void OnClick(InputAction.CallbackContext context)
+    {
+        if (context.performed && isFertilizing)
+        {
+            HandlePlantSelection();
+        }
+    }
+
+    // NEW: Handle mouse movement for highlighting
+    private void OnMouseMove(InputAction.CallbackContext context)
+    {
+        if (isFertilizing)
+        {
+            HandlePlantHighlighting();
+        }
+    }
+
+    private void HandlePlantSelection()
+    {
+        Vector2 pointPosition = inputSystemActions.UI.Point.ReadValue<Vector2>(); 
+        Ray ray = Camera.main.ScreenPointToRay(pointPosition);
+        RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
+
+        if (hit2d.collider != null &&  hit2d.transform != null)
+        {
+            GameObject hitObject = hit2d.transform.gameObject;
+            if (hitObject != null && hitObject.CompareTag("Carrot"))
             {
+                selectedPlant = hitObject.GetComponent<PlantStatus>();
+                isFertilizing = false;
+                DisableOutline();
+
                 //Pass the word item to the selected word, if it didn't work out
-                if (!selectedPlant.GrowWord(currentWord.word,currentWord.type))
+                if (!selectedPlant.GrowWord(currentWord.word, currentWord.type))
                 {
                     uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
-                    if(SFXManager.Instance != null)
+                    if (SFXManager.Instance != null)
                         SFXManager.Instance.ManageSFX(4);
                     else
                     {
@@ -86,21 +149,41 @@ public class PlantManager : MonoBehaviour
                 }
                 else
                 {
-                    if(SFXManager.Instance != null)
+                    if (SFXManager.Instance != null)
                         SFXManager.Instance.ManageSFX(1);
                     else
                     {
                         Debug.Log("SFX Manager not found!");
                     }
+
                     uiMngr.UpdateInstructionMessage("Congratulations Correct Mix!");
                     Invoke("SellOrFertilizeMessage", 1);
                     UpdateWordDisplay();
                 }
-                gameManager.CheckWinningCondition();
             }
+            gameManager.CheckWinningCondition();
         }
     }
 
+    private void HandlePlantHighlighting()
+    {
+        if (highlightedPlant != null)
+        {
+            highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.white;
+            highlightedPlant = null;
+        }
+
+        Vector2 mousePosition = inputSystemActions.UI.Point.ReadValue<Vector2>(); 
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
+
+        if (hit2d.collider != null && hit2d.transform.gameObject.tag == "Carrot")
+        {
+            highlightedPlant = hit2d.transform;
+            highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.red;
+        }
+    }
+    
     public void ActivateOutline()
     {
         foreach (var plant in plantsOutline)
@@ -132,43 +215,6 @@ public class PlantManager : MonoBehaviour
             plant.DisableSellButton();
         }
     }
-    public bool SearchingForPlant()
-    {
-        if(highlightedPlant != null)
-        {
-            highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.white;
-            highlightedPlant = null;
-        }
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
-
-        if (hit2d.collider != null)
-        {
-            //This will change the outline color if highlighted
-            if (hit2d.transform.gameObject.tag == "Carrot")
-            {
-                highlightedPlant = hit2d.transform;
-                highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.red;
-            }
-
-            if (Input.GetMouseButtonDown(0))// When clicked Mouse-Left-Button
-            {
-                if (hit2d.collider != null)
-                {
-                    if (hit2d.transform.gameObject.tag == "Carrot")
-                    {
-                        selectedPlant = hit2d.transform.gameObject.GetComponent<PlantStatus>();
-                        isFertilizing = false;
-                        DisableOutline();
-                        return true;
-                    }
-                }
-            }
-        }
-        
-        return false;
-    }
 
     //Pass the word item info to the plant
     public void EnablePlant(int pos,string word)
@@ -180,7 +226,7 @@ public class PlantManager : MonoBehaviour
 
         plantPos[pos].PlantWord(word);
 
-        UpdateMoney(seedCost);
+        UpdateMoney(-seedCost);
         UpdateWordDisplay();
 
     }
@@ -285,7 +331,7 @@ public class PlantManager : MonoBehaviour
                     currentWord = recievedWord;
                     isFertilizing = true;
                     uiMngr.UpdateInstructionMessage($"Click on the carrot to apply the {currentWord.word} fertilizer");
-                    UpdateMoney(fertilizerCost);
+                    UpdateMoney(-fertilizerCost);
                     return true;
                 }
                 else
@@ -309,22 +355,30 @@ public class PlantManager : MonoBehaviour
 
     public void SellPlant(int value)
     {
-        //Decrement by 1
-        plantSpotsCurrentCount--;
+        if (!isFertilizing)
+        {
+            //Decrement by 1
+            plantSpotsCurrentCount--;
 
-        UpdateMoney(value);
-        if(SFXManager.Instance != null)
-            SFXManager.Instance.ManageSFX(0);
+            UpdateMoney(value);
+            if (SFXManager.Instance != null)
+                SFXManager.Instance.ManageSFX(0);
+            else
+            {
+                Debug.Log("SFX Manager not found!");
+            }
+
+            uiMngr.UpdateInstructionMessage("Congratulations you generated some money!");
+            Invoke("PlantSeedMessage", 1);
+
+            //Checking winning condition behavior
+            gameManager.CheckWinningCondition();
+            //gameManager.IncrementWordCount();
+        }
         else
         {
-            Debug.Log("SFX Manager not found!");
+            uiMngr.UpdateInstructionMessage("Finish previous fertilization task first!");
         }
-        uiMngr.UpdateInstructionMessage("Congratulations you generated some money!");
-        Invoke("PlantSeedMessage", 1);
-        
-        //Checking winning condition behavior
-        gameManager.CheckWinningCondition();
-        //gameManager.IncrementWordCount();
     }
 
     public void PlantSeedMessage()
