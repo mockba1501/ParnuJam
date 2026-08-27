@@ -169,6 +169,15 @@
         "com.unity.2d.tooling": "1.0.3"
       }
     },
+    "com.unity.ide.antigravity": {
+      "version": "https://github.com/akshwpsh/com.unity.ide.antigravity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.9"
+      },
+      "hash": "14122ae431b4fcd7f80755f24d924c128e26ff33"
+    },
     "com.unity.ide.rider": {
       "version": "3.0.40",
       "depth": 0,
@@ -179,7 +188,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.27",
+      "version": "2.0.28",
       "depth": 0,
       "source": "registry",
       "dependencies": {
