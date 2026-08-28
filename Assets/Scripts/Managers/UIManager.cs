@@ -7,10 +7,9 @@ using System.Linq;
 
 public class UIManager : MonoBehaviour
 {
-    public WordManager wordManager;
-    public GameManager gameManager;
-
-    public static UIManager uiManager { get; private set; }
+    public static UIManager Instance { get; private set; }
+    //public WordManager wordManager;
+    //public GameManager gameManager;
 
     public Sprite seedBagImg; // previously Image class
     public Sprite fertilizerBagImg; // previously Image class
@@ -33,15 +32,33 @@ public class UIManager : MonoBehaviour
 
     private int futureWordsDisplayMax;
 
+    private void OnEnable()
+    {
+        PlantManager.OnPlantSold += HandlePlantSold;
+        PlantManager.OnPlantInstructionRequested += UpdateInstructionMessage;
+        ItemSlot.OnItemSlotInstructionRequested += UpdateInstructionMessage;
+
+        GameManager.OnMoneyChanged += HandleMoneyChanged;
+    }
+    private void OnDisable()
+    {
+        PlantManager.OnPlantSold -= HandlePlantSold;
+        PlantManager.OnPlantInstructionRequested -= UpdateInstructionMessage;
+        ItemSlot.OnItemSlotInstructionRequested -= UpdateInstructionMessage;
+        GameManager.OnMoneyChanged -= HandleMoneyChanged;
+    }
+
     void Awake()
     {
         //Debug.Log("Accessing UI Manager Awake " + System.DateTime.Now.Month.ToString());
-        if (uiManager != null)
+        if (Instance != null && Instance != this)
         {
             //Debug.LogWarning("More than one instance of Inventory found");
+            Destroy(gameObject);
             return;
         }
-        uiManager = this;
+
+        Instance = this;
     }
 
     // Start is called before the first frame update
@@ -58,20 +75,37 @@ public class UIManager : MonoBehaviour
         futureWordsDisplayMax = futureSlots.Count();
 
         InitilizeWordSlots();
-        GetNextWords();
-        UpdateCoinsDisplay();
+        GetNextWords();       
         UpdatedWordsGeneratedCounter();
         UpdatedWordsTargetText();
+
+        //UpdateCoinsDisplay();
+        // If GameManager started first, OnMoneyChanged already set it.
+        // As a safety fallback for Start():
+        if (GameManager.Instance != null)
+            HandleMoneyChanged(GameManager.Instance.CurrentMoney());
     }
 
-    //
+    private void HandlePlantSold(int value)
+    {
+        //UpdateCoinsDisplay();
+        UpdateInstructionMessage("Congratulations you generated some money!");
+        Invoke("ShowPlantSeedPrompt", 1f);
+    }
+
+    
+    private void ShowPlantSeedPrompt()
+    {
+        UpdateInstructionMessage("Choose a seed to plant!");
+    }
+    
     public void InitilizeWordSlots()
     {
         foreach (var slot in itemSlots) 
         {
-            if (!wordManager.IsEmpty())
+            if (!WordManager.Instance.IsEmpty())
             {
-                WordItem tmp = wordManager.GetWord();
+                WordItem tmp = WordManager.Instance.GetWord();
                 slot.AddItem(tmp);
             }
             //If the word queue is empty then you need to clear the slot?
@@ -99,7 +133,7 @@ public class UIManager : MonoBehaviour
     public void GetNextWords()
     {
         //Call the manager and retrieve a list of next words
-        List<string> topWord = wordManager.GetNextWords(futureWordsDisplayMax);
+        List<string> topWord = WordManager.Instance.GetNextWords(futureWordsDisplayMax);
 
         int i = 0;
         foreach (string word in topWord) 
@@ -145,9 +179,9 @@ public class UIManager : MonoBehaviour
 
     public bool RefreshSlot(ItemSlot slot)
     {
-        if (!wordManager.IsEmpty())
+        if (!WordManager.Instance.IsEmpty())
         {
-            WordItem tmp = wordManager.GetWord();
+            WordItem tmp = WordManager.Instance.GetWord();
             slot.AddItem(tmp);
             return true;
         }
@@ -158,20 +192,25 @@ public class UIManager : MonoBehaviour
     {
         instructionSlot.text = txt;
     }
-
+/*
     public void UpdateCoinsDisplay()
     {
         coinText.text = gameManager.CurrentMoney().ToString();
     }
+*/
+    private void HandleMoneyChanged(int currentMoney)
+    {
+        coinText.text = currentMoney.ToString();
+    }
 
     public void UpdatedWordsGeneratedCounter() 
     {
-        wordsCounterText.text = gameManager.CurrentWordsGeneratedCounter().ToString();
+        wordsCounterText.text = GameManager.Instance.CurrentWordsGeneratedCounter().ToString();
     }
 
     public void UpdatedWordsTargetText()
     {
-        wordsTargetText.text = "Out of " + gameManager.GetWordWinningTarget().ToString();
+        wordsTargetText.text = "Out of " + GameManager.Instance.GetWordWinningTarget().ToString();
     }
     // Sound mute toggler
     public void MuteToggle(bool muted)

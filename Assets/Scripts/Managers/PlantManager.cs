@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +7,7 @@ using TMPro;
 /*
     //General functions to check available planting slots [Done]
     //  - Highlight an empty space 
-    //  - Select an exsiting plant slot
+    //  - Select an existing plant slot
 
     //Initialize the field with the children of the current PlantPos
 
@@ -23,10 +22,10 @@ using TMPro;
 
 public class PlantManager : MonoBehaviour
 {
-    public GameManager gameManager;
-    public UIManager uiMngr;
-
-    //public GameObject plantParent;
+    public static PlantManager Instance { get; private set; }
+    public static event Action<int> OnPlantSold;
+    public static event Action<string> OnPlantInstructionRequested;
+    
     public List<PlantStatus> plantPos;
     public List<Outline> plantsOutline;
     public TMP_Text coinText;
@@ -45,7 +44,6 @@ public class PlantManager : MonoBehaviour
     private Transform highlightedPlant;
     private InputSystem_Actions inputSystemActions;
 
-    public static PlantManager Instance { get; private set; }
 
     void Awake()
     {
@@ -95,15 +93,6 @@ public class PlantManager : MonoBehaviour
         DisableOutline();
     }
 
-    private void Update()
-    {
-        //If the fertilizing flag is set to true check the ray cast and assign an object
-        if(isFertilizing) 
-        {
-            ActivateOutline();
-        }
-    }
-
     private void OnClick(InputAction.CallbackContext context)
     {
         if (context.performed && isFertilizing)
@@ -127,10 +116,10 @@ public class PlantManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(pointPosition);
         RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit2d.collider != null &&  hit2d.transform != null)
+        if (hit2d.collider&&  hit2d.transform )
         {
             GameObject hitObject = hit2d.transform.gameObject;
-            if (hitObject != null && hitObject.CompareTag("Carrot"))
+            if (hitObject && hitObject.CompareTag("Carrot"))
             {
                 selectedPlant = hitObject.GetComponent<PlantStatus>();
                 isFertilizing = false;
@@ -139,8 +128,9 @@ public class PlantManager : MonoBehaviour
                 //Pass the word item to the selected word, if it didn't work out
                 if (!selectedPlant.GrowWord(currentWord.word, currentWord.type))
                 {
-                    uiMngr.UpdateInstructionMessage("Ops! Incorrect Fertilizer Combination!");
-                    if (SFXManager.Instance != null)
+                    OnPlantInstructionRequested?.Invoke("Ops! Incorrect Fertilizer Combination!");
+                    
+                    if (SFXManager.Instance)
                         SFXManager.Instance.ManageSFX(4);
                     else
                     {
@@ -149,25 +139,25 @@ public class PlantManager : MonoBehaviour
                 }
                 else
                 {
-                    if (SFXManager.Instance != null)
+                    if (SFXManager.Instance)
                         SFXManager.Instance.ManageSFX(1);
                     else
                     {
                         Debug.Log("SFX Manager not found!");
                     }
 
-                    uiMngr.UpdateInstructionMessage("Congratulations Correct Mix!");
+                    OnPlantInstructionRequested?.Invoke("Congratulations Correct Mix!");
                     Invoke("SellOrFertilizeMessage", 1);
                     UpdateWordDisplay();
                 }
             }
-            gameManager.CheckWinningCondition();
+            GameManager.Instance.CheckWinningCondition();
         }
     }
 
     private void HandlePlantHighlighting()
     {
-        if (highlightedPlant != null)
+        if (highlightedPlant)
         {
             highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.white;
             highlightedPlant = null;
@@ -177,14 +167,14 @@ public class PlantManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit2d.collider != null && hit2d.transform.gameObject.tag == "Carrot")
+        if (hit2d.collider && hit2d.transform.gameObject.tag == "Carrot")
         {
             highlightedPlant = hit2d.transform;
             highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.red;
         }
     }
     
-    public void ActivateOutline()
+    private void ActivateOutline()
     {
         foreach (var plant in plantsOutline)
         {
@@ -192,7 +182,7 @@ public class PlantManager : MonoBehaviour
         }
     }
 
-    public void DisableOutline()
+    private void DisableOutline()
     {
         foreach (var plant in plantsOutline)
         {
@@ -232,18 +222,18 @@ public class PlantManager : MonoBehaviour
     }
     public void UpdateWordDisplay()
     {
-        gameManager.IncrementWordCount();
-        uiMngr.UpdatedWordsGeneratedCounter();
+        GameManager.Instance.IncrementWordCount();
+        UIManager.Instance.UpdatedWordsGeneratedCounter();
     }
 
     public void UpdateMoney(int amount)
     {
-        gameManager.ModifyMoney(amount);
-        uiMngr.UpdateCoinsDisplay();
+        GameManager.Instance.ModifyMoney(amount);
+        //UIManager.Instance.UpdateCoinsDisplay();
     }
 
     //Check the spots and return if there is an empty space or not
-    public bool IsFree()
+    private bool IsFree()
     {
         //If the current filled spots is equal to the maximum then it is full
         return plantSpotsCurrentCount < plantSpotsCountMax;
@@ -284,115 +274,102 @@ public class PlantManager : MonoBehaviour
         if (!isFertilizing)
         {
             // Check if there are free spots and enough money
-            if (gameManager.IsMoneySufficient())
+            if (GameManager.Instance.IsMoneySufficient())
             {
                 if (IsFree())
                 {
                     //Retrieve an empty spot, pass the word info to plant
                     EnablePlant(FreeSpot(), word);
-                    uiMngr.UpdateInstructionMessage("Congratulations you planted a new seed!");
+                    OnPlantInstructionRequested?.Invoke("Congratulations you planted a new seed!");
                     Invoke("FertilizeMessage", 1);
                     return true;
                 }
                 else
                 {
-                    uiMngr.UpdateInstructionMessage("No empty slots!");
+                    OnPlantInstructionRequested?.Invoke("No empty slots!");
                     return false;
                 }
             }
             else
             {
-                uiMngr.UpdateInstructionMessage("Not enough money!");
+                OnPlantInstructionRequested?.Invoke("Not enough money!");
                 return false;
             }
         }
         else
         {
-            uiMngr.UpdateInstructionMessage("Finish Fertilization task first!");
+            OnPlantInstructionRequested?.Invoke("Finish Fertilization task first!");
             return false;
         }
     }
 
-    public bool ApplyFertilizer(WordItem recievedWord)
+    public bool ApplyFertilizer(WordItem receivedWord)
     {
         //if a correct combination return success else if incorrect combination return false
         //Success
-
+        ActivateOutline();
         //The selected item is a fertilizer
-        //  a) you select a correct root combination it will grow to the following level
-        //  b) if incorrect root nothing will happen
+        //  1) you select a correct root combination it will grow to the following level
+        //  2) if incorrect root nothing will happen
         // Check if there are free spots and enough money
         if (!isFertilizing)
         {
-            if (gameManager.IsMoneySufficient())
+            if (GameManager.Instance.IsMoneySufficient())
             {
                 if (!IsEmpty())
                 {
-                    currentWord = recievedWord;
+                    currentWord = receivedWord;
                     isFertilizing = true;
-                    uiMngr.UpdateInstructionMessage($"Click on the carrot to apply the {currentWord.word} fertilizer");
+                    OnPlantInstructionRequested?.Invoke($"Click on the carrot to apply the {currentWord.word} fertilizer");
                     UpdateMoney(-fertilizerCost);
                     return true;
                 }
                 else
                 {
-                    uiMngr.UpdateInstructionMessage("Empty field, plant some roots first!");
+                    OnPlantInstructionRequested?.Invoke("Empty field, plant some roots first!");
                     return false;
                 }
             }
             else
             {
-                uiMngr.UpdateInstructionMessage("Not enough money!");
+                OnPlantInstructionRequested?.Invoke("Not enough money!");
                 return false;
             }
         }
         else
         {
-            uiMngr.UpdateInstructionMessage("Finish previous fertilization task first!");
+            OnPlantInstructionRequested?.Invoke("Finish previous fertilization task first!");
             return false;
         }
     }
 
-    public void SellPlant(int value)
+    public bool SellPlant(int value)
     {
-        if (!isFertilizing)
+        if(isFertilizing)
         {
-            //Decrement by 1
-            plantSpotsCurrentCount--;
-
-            UpdateMoney(value);
-            if (SFXManager.Instance != null)
-                SFXManager.Instance.ManageSFX(0);
-            else
-            {
-                Debug.Log("SFX Manager not found!");
-            }
-
-            uiMngr.UpdateInstructionMessage("Congratulations you generated some money!");
-            Invoke("PlantSeedMessage", 1);
-
-            //Checking winning condition behavior
-            gameManager.CheckWinningCondition();
-            //gameManager.IncrementWordCount();
+            OnPlantInstructionRequested?.Invoke("Finish previous fertilization task first!");
+            return false;
         }
-        else
-        {
-            uiMngr.UpdateInstructionMessage("Finish previous fertilization task first!");
-        }
+
+        //Decrement by 1
+        plantSpotsCurrentCount--;
+        OnPlantSold?.Invoke(value);
+
+        return true;
     }
 
     public void PlantSeedMessage()
     {
-        uiMngr.UpdateInstructionMessage("Choose a seed to plant!");
+        OnPlantInstructionRequested?.Invoke("Choose a seed to plant!");
     }
 
     public void SellOrFertilizeMessage()
     {
-        uiMngr.UpdateInstructionMessage("You can sell the plant or use a fertilizer to grow your plant bigger!");
+        OnPlantInstructionRequested?.Invoke("You can sell the plant or use a fertilizer to grow your plant bigger!");
     }
 
     public void FertilizeMessage()
     {
-        uiMngr.UpdateInstructionMessage("Use a fertilizer to grow your plant!");
+        OnPlantInstructionRequested?.Invoke("Use a fertilizer to grow your plant!");
     }
 }

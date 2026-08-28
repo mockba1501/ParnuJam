@@ -175,7 +175,7 @@ public class WordManager : MonoBehaviour
 
     public WordItem GetWord()
     {
-        //Access the invenotry itemSlots using the Add function 
+        //Access the inventory itemSlots using the Add function 
         //Pass the wordItems (word and the type)
         WordItem data = wordsQueue.Dequeue();
         return data;

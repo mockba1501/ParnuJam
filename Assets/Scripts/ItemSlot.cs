@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class ItemSlot : MonoBehaviour
 {
-    public GameManager gameManager;
-    public UIManager uiMngr;
-    public PlantManager plantManager;
-    
+    public static event System.Action<string> OnItemSlotInstructionRequested;
+
     public Image icon; // Previsously Image class
     public Button removeButton;
     public Button useButton;
@@ -31,12 +27,12 @@ public class ItemSlot : MonoBehaviour
         // type 0 is root/seed
         if (this.wordItem.type == 0)
         {
-             icon.sprite = uiMngr.seedBagImg;
+             icon.sprite = UIManager.Instance.seedBagImg;
         } 
         //other types 1,2 are suffix and prefix
         else
         {
-            icon.sprite = uiMngr.fertilizerBagImg;
+            icon.sprite = UIManager.Instance.fertilizerBagImg;
         }
     }
 
@@ -66,7 +62,7 @@ public class ItemSlot : MonoBehaviour
         if(this.wordItem.type == 0)
         {
             //Check if there are free spots or not
-            if (plantManager.PlantRoot(wordItem.word))
+            if (PlantManager.Instance.PlantRoot(wordItem.word))
             { 
                 ClearSlot();
             }
@@ -81,7 +77,7 @@ public class ItemSlot : MonoBehaviour
         {
             //uiMngr.UpdateInstructionMessage("Can't use now!");
            
-            if(plantManager.ApplyFertilizer(wordItem)) 
+            if(PlantManager.Instance.ApplyFertilizer(wordItem)) 
             {
 
                 ClearSlot();
@@ -94,24 +90,24 @@ public class ItemSlot : MonoBehaviour
 
     public void RemoveItem() 
     {
-        if (!plantManager.IsFertilizing())
+        if (!PlantManager.Instance.IsFertilizing())
         {
-            if (gameManager.IsMoneySufficient())
+            if (GameManager.Instance.IsMoneySufficient())
             {
-                gameManager.ModifyMoney(removeCost);
-                uiMngr.UpdateCoinsDisplay();
+                GameManager.Instance.ModifyMoney(removeCost);
+                //uiMngr.UpdateCoinsDisplay();
                 ClearSlot();
                 //gameManager.CheckWinningCondition();
             }
             else
             {
-                uiMngr.UpdateInstructionMessage("Can't remove item, not enough money!");
+                OnItemSlotInstructionRequested?.Invoke("Can't remove item, not enough money!");
             }
         }
         else
         {
-            Debug.Log("Can't remove item, finish fertilizing first!");
-            uiMngr.UpdateInstructionMessage("Can't remove item, finish fertilizing first!");
+            //Debug.Log("Can't remove item, finish fertilizing first!");
+            OnItemSlotInstructionRequested?.Invoke("Can't remove item, finish fertilizing first!");
         }
     }
     public void ClearSlot()
@@ -123,10 +119,10 @@ public class ItemSlot : MonoBehaviour
     public void ResetSlot()
     {
         //After refreshing the slot if there are remaining words it will activate the game object
-        if (uiMngr.RefreshSlot(this))
+        if (UIManager.Instance.RefreshSlot(this))
         {
             this.gameObject.SetActive(true);
-            uiMngr.GetNextWords();
+            UIManager.Instance.GetNextWords();
         }
         else //Otherwise you can display sold out screen! Or deactivate the slot
         {
@@ -134,7 +130,7 @@ public class ItemSlot : MonoBehaviour
             
         }
 
-        gameManager.CheckWinningCondition();
+        GameManager.Instance.CheckWinningCondition();
     }
 
     public bool IsSlotActive()

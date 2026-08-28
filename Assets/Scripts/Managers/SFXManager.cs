@@ -23,6 +23,15 @@ public class SFXManager : MonoBehaviour
     
     #endregion
     
+    private void OnEnable()
+    {
+        PlantManager.OnPlantSold += HandlePlantSold;
+    }
+    private void OnDisable()
+    {
+        PlantManager.OnPlantSold -= HandlePlantSold;
+    }
+
     private void SetupAudio()
     {
         // Check for existing AudioSource (manual assignment)
@@ -84,5 +93,10 @@ public class SFXManager : MonoBehaviour
         }
         
         audioSource.PlayOneShot(this.sfxMusicClips[num]);
+    }
+
+    private void HandlePlantSold(int value)
+    {
+        ManageSFX(0); // Harvest sound
     }
 }
