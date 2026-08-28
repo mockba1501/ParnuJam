@@ -80,29 +80,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*
-        if (isGameOver)
-        {
-            DisableGameButtons();
-            if (isWin)
-            {
-                UIManager.Instance.UpdateInstructionMessage("Game Over: You Win");
-            }
-            else
-            {
-                UIManager.Instance.UpdateInstructionMessage("Game Over: You Lose");
-            }
-            
-        }
-        //Winning Conditions:
-        // - Check the number of generated words
-        // - Check the available money
-        */
-    }
-
     public void ModifyMoney(int amount)
     {
         money += amount;

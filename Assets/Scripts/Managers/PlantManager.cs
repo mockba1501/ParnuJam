@@ -44,11 +44,14 @@ public class PlantManager : MonoBehaviour
     private bool isFertilizing;
     private Transform highlightedPlant;
     private InputSystem_Actions inputSystemActions;
+    private Camera mainCamera;
 
 
     void Awake()
     {
         inputSystemActions = new InputSystem_Actions();
+        mainCamera = Camera.main;
+        
         if(Instance == null)
             Instance = this;
         else
@@ -114,7 +117,7 @@ public class PlantManager : MonoBehaviour
     private void HandlePlantSelection()
     {
         Vector2 pointPosition = inputSystemActions.UI.Point.ReadValue<Vector2>(); 
-        Ray ray = Camera.main.ScreenPointToRay(pointPosition);
+        Ray ray = mainCamera.ScreenPointToRay(pointPosition);
         RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
 
         if (hit2d.collider &&  hit2d.transform)
@@ -153,10 +156,10 @@ public class PlantManager : MonoBehaviour
         }
 
         Vector2 mousePosition = inputSystemActions.UI.Point.ReadValue<Vector2>(); 
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
         RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit2d.collider && hit2d.transform.gameObject.tag == "Carrot")
+        if (hit2d.collider && hit2d.transform.gameObject.CompareTag("Carrot"))
         {
             highlightedPlant = hit2d.transform;
             highlightedPlant.gameObject.GetComponentInChildren<Outline>().OutlineColor = Color.red;
