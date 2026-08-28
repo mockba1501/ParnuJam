@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         OnMoneyChanged?.Invoke(money);
         
         // Safety check for wordManager
-        if (WordManager.Instance != null)
+        if (WordManager.Instance)
         {
             wordWinningTarget = WordManager.Instance.GetStemCount()/2 + 1;
         }
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
             wordWinningTarget = 0; // Default value
         }
         
-        if (BGMManager.Instance != null)
+        if (BGMManager.Instance)
         {
             BGMManager.Instance.ManageBGM(0);
         }
@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
         {
             TriggerGameOver(true, "Congratulations You Won");
         }
-        else if (UIManager.Instance != null && !UIManager.Instance.IsRootAvailable() && IsFieldEmpty() && IsWordManagerEmpty())
+        else if (UIManager.Instance && !UIManager.Instance.IsRootAvailable() && IsFieldEmpty() && IsWordManagerEmpty())
         {
             Debug.Log("Game Over: No roots remaining");
             TriggerGameOver(false, "Game Over: No roots remaining");
@@ -195,7 +195,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game Over: No money left");
             TriggerGameOver(false, "Game Over: No money left");
         }
-        else if (IsWordManagerEmpty() && UIManager.Instance != null && UIManager.Instance.IsSlotsEmpty())
+        else if (IsWordManagerEmpty() && UIManager.Instance  && UIManager.Instance.IsSlotsEmpty())
         {
             Debug.Log("Game Over: No word stems left");
             TriggerGameOver(false, "Game Over: No word stems left");
@@ -204,29 +204,29 @@ public class GameManager : MonoBehaviour
 
     private bool IsFieldEmpty()
     {
-        if (PlantManager.Instance != null)
+        if (PlantManager.Instance)
             return PlantManager.Instance.IsEmpty();
         return true;
     }
 
     private bool IsWordManagerEmpty()
     {
-        if (WordManager.Instance != null)
+        if (WordManager.Instance)
             return WordManager.Instance.IsEmpty();
         return true;
     }
 
-    public void TriggerGameOver(bool won, string message)
+    private void TriggerGameOver(bool won, string message)
     {
         isGameOver = true;
         isWin = won;
         DisableGameButtons();
 
         // Cancel any pending delayed instruction messages
-        if (PlantManager.Instance != null)
+        if (PlantManager.Instance)
             PlantManager.Instance.CancelInvoke();
             
-        if (UIManager.Instance != null)
+        if (UIManager.Instance)
         {
             UIManager.Instance.CancelInvoke();
             UIManager.Instance.UpdateInstructionMessage(message);

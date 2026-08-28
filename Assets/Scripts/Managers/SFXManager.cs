@@ -26,10 +26,12 @@ public class SFXManager : MonoBehaviour
     private void OnEnable()
     {
         PlantManager.OnPlantSold += HandlePlantSold;
+        PlantManager.OnFertilizerApplied += HandleFertilizerApplied;
     }
     private void OnDisable()
     {
         PlantManager.OnPlantSold -= HandlePlantSold;
+        PlantManager.OnFertilizerApplied -= HandleFertilizerApplied;
     }
 
     private void SetupAudio()
@@ -98,5 +100,17 @@ public class SFXManager : MonoBehaviour
     private void HandlePlantSold(int value)
     {
         ManageSFX(0); // Harvest sound
+    }
+
+    private void HandleFertilizerApplied(bool isCorrect)
+    {
+        if(isCorrect)
+        {
+            ManageSFX(1); // Correct mix sound
+        }
+        else
+        {
+            ManageSFX(4); // Incorrect mix sound
+        }
     }
 }

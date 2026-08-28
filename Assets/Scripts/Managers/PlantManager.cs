@@ -24,6 +24,7 @@ public class PlantManager : MonoBehaviour
 {
     public static PlantManager Instance { get; private set; }
     public static event Action<int> OnPlantSold;
+    public static event Action<bool> OnFertilizerApplied;
     public static event Action<string> OnPlantInstructionRequested;
     
     public List<PlantStatus> plantPos;
@@ -116,7 +117,7 @@ public class PlantManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(pointPosition);
         RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit2d.collider&&  hit2d.transform )
+        if (hit2d.collider &&  hit2d.transform)
         {
             GameObject hitObject = hit2d.transform.gameObject;
             if (hitObject && hitObject.CompareTag("Carrot"))
@@ -129,24 +130,12 @@ public class PlantManager : MonoBehaviour
                 if (!selectedPlant.GrowWord(currentWord.word, currentWord.type))
                 {
                     OnPlantInstructionRequested?.Invoke("Ops! Incorrect Fertilizer Combination!");
-                    
-                    if (SFXManager.Instance)
-                        SFXManager.Instance.ManageSFX(4);
-                    else
-                    {
-                        Debug.Log("SFX Manager not found!");
-                    }
+                    OnFertilizerApplied?.Invoke(false);
                 }
                 else
                 {
-                    if (SFXManager.Instance)
-                        SFXManager.Instance.ManageSFX(1);
-                    else
-                    {
-                        Debug.Log("SFX Manager not found!");
-                    }
-
                     OnPlantInstructionRequested?.Invoke("Congratulations Correct Mix!");
+                    OnFertilizerApplied?.Invoke(true);
                     Invoke("SellOrFertilizeMessage", 1);
                     UpdateWordDisplay();
                 }

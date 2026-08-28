@@ -163,9 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d78cff33196b4c43bf83ef6927736fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantManager: {fileID: 1525834523}
-  uiManager: {fileID: 154141147}
-  wordManager: {fileID: 1939869190}
   money: 0
   wordsGeneratedCounter: 0
   isGameOver: 0
@@ -596,8 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20151a81062a47f4d848d4e545857966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wordManager: {fileID: 1939869190}
-  gameManager: {fileID: 21424332}
   seedBagImg: {fileID: 21300000, guid: d25bd89b0244618409915f94da3a0c37, type: 3}
   fertilizerBagImg: {fileID: 21300000, guid: 8c5e6b2f28603e146af0f8856fc051c3, type: 3}
   itemSlots:
@@ -4517,6 +4512,22 @@ PrefabInstance:
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
+    - target: {fileID: 6252760760031121644, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252760760286420327, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252760760286420327, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252760760286420329, guid: 868884b17daceb0408af8e5d364c90a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5455,8 +5466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ed2ad169b6e25408a8871287c73871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 21424332}
-  uiMngr: {fileID: 154141147}
   plantPos:
   - {fileID: 7893050251540158945}
   - {fileID: 1034088235}

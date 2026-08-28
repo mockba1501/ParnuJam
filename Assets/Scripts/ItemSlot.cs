@@ -6,7 +6,7 @@ public class ItemSlot : MonoBehaviour
 {
     public static event System.Action<string> OnItemSlotInstructionRequested;
 
-    public Image icon; // Previsously Image class
+    public Image icon; // Previously Image class
     public Button removeButton;
     public Button useButton;
     public TMP_Text buttonText;
@@ -66,17 +66,9 @@ public class ItemSlot : MonoBehaviour
             { 
                 ClearSlot();
             }
-            else
-            {                
-                //Send a message to the user there are not empty spots! 
-                //uiMngr.UpdateInstructionMessage("No Free Slots!");
-                //Do nothing
-            }
         }
         else
         {
-            //uiMngr.UpdateInstructionMessage("Can't use now!");
-           
             if(PlantManager.Instance.ApplyFertilizer(wordItem)) 
             {
 
@@ -95,9 +87,8 @@ public class ItemSlot : MonoBehaviour
             if (GameManager.Instance.IsMoneySufficient())
             {
                 GameManager.Instance.ModifyMoney(removeCost);
-                //uiMngr.UpdateCoinsDisplay();
+                
                 ClearSlot();
-                //gameManager.CheckWinningCondition();
             }
             else
             {
@@ -106,7 +97,6 @@ public class ItemSlot : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Can't remove item, finish fertilizing first!");
             OnItemSlotInstructionRequested?.Invoke("Can't remove item, finish fertilizing first!");
         }
     }
@@ -140,13 +130,16 @@ public class ItemSlot : MonoBehaviour
 
     public void DisableItemSlotButtons()
     {
-        removeButton.interactable = false;
+        //removeButton.interactable = false;
+        removeButton.gameObject.SetActive(false);
         useButton.interactable = false;
     }
 
     public void EnableItemSlotButtons()
     {
-        removeButton.interactable = true;
+        //removeButton.interactable = true;
+        removeButton.gameObject.SetActive(true);
         useButton.interactable = true;
+        
     }
 }
