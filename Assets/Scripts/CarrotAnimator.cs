@@ -1,50 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarrotAnimator : MonoBehaviour
 {
     private PlantStatus plantStatus;
-    private Animator m_Animator;
+    private Animator animator;
+    private static readonly int CarrotLevelHash = Animator.StringToHash("carrotLevel");
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         plantStatus = GetComponent<PlantStatus>();
-        m_Animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        CarrotAnimation();
-    }
-
-    public void CarrotAnimation()
+    private void OnEnable()
     {
         if (plantStatus)
-        {
-            switch (plantStatus.level)
-            {
-                case 0:
-                    m_Animator.SetInteger("carrotLevel", 1);
-                    break;
-
-                case 1:
-                    m_Animator.SetInteger("carrotLevel", 2);
-                    break;
-
-                case 2:
-                    m_Animator.SetInteger("carrotLevel", 3);
-                    break;
-
-                case 3:
-                    m_Animator.SetInteger("carrotLevel", 4);
-                    break;
-
-                default:
-                    Debug.Log("No animation");
-                    break;
-            }
-        }
+            plantStatus.OnWordGrown += UpdateAnimation;
     }
+    private void OnDisable()
+    {
+        if (plantStatus)
+            plantStatus.OnWordGrown -= UpdateAnimation;
+    }
+
+    private void UpdateAnimation(int currentLevel)
+    {
+        animator.SetInteger(CarrotLevelHash, currentLevel + 1);
+        Debug.Log("Animator called " + currentLevel);
+    }
+    
 }

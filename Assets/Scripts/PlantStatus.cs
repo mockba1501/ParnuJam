@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlantStatus : MonoBehaviour
 {
+    public event System.Action<int> OnWordGrown;
     public string rootWord;
     public bool isEmpty;
     public int level;
@@ -19,9 +18,6 @@ public class PlantStatus : MonoBehaviour
     private TMP_Text currentWordValueText;
     public Button sellButton;
 
-    public WordManager wordManager;
-    public PlantManager plantManager;
-
     void Start()
     {
         //To deactivate any existing plants in the field
@@ -29,7 +25,7 @@ public class PlantStatus : MonoBehaviour
         //Debug.Log(level);
     }
 
-    public void ResetPlant()
+    private void ResetPlant()
     {
         isEmpty = true;
         level = 0;
@@ -37,6 +33,7 @@ public class PlantStatus : MonoBehaviour
         rootWord = string.Empty;
         currentWord = string.Empty;
         gameObject.SetActive(false);
+        OnWordGrown?.Invoke(level);
     }
     public bool IsEmpty()
     {
@@ -55,16 +52,17 @@ public class PlantStatus : MonoBehaviour
 
         //Adjusting the UI of the plant
         UpdatePlantUI();
+        OnWordGrown?.Invoke(level);
     }
 
     public bool GrowWord(string firstWord, int type) 
     {
         string newWord = string.Empty;
         //Check if the new word is correct
-        newWord = wordManager.MixWords(currentWord, firstWord, type);
+        newWord = WordManager.Instance.MixWords(currentWord, firstWord, type);
 
         //If the new word is correct adjust the plant values
-        if(wordManager.CheckWord(newWord))
+        if(WordManager.Instance.CheckWord(newWord))
         {
             //Pass new info to the plant 
             level += 1;
@@ -72,6 +70,7 @@ public class PlantStatus : MonoBehaviour
             currentWord = newWord;
 
             UpdatePlantUI();
+            OnWordGrown?.Invoke(level);
             return true;
         }
         
@@ -80,11 +79,12 @@ public class PlantStatus : MonoBehaviour
 
     public void HarvestWord()
     {
-        plantManager.SellPlant(wordValue);
-        ResetPlant();
+        //if successfully sold the plant then remove it
+        if(PlantManager.Instance.SellPlant(wordValue))
+            ResetPlant();
     }
 
-    public void UpdatePlantUI()
+    private void UpdatePlantUI()
     {
         gameObject.SetActive(true);
         currentWordText.text = currentWord;
